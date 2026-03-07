@@ -1,0 +1,69 @@
+---
+name: Daily Briefing
+description: Generates a concise morning briefing for Arnold covering the day's priorities, pending items, and context — surfaced from memory, context files, and the inbox.
+---
+
+# Daily Briefing Skill
+
+Generates a structured morning briefing to start the day with clarity and focus.
+
+## When to Use
+
+- Arnold asks for a "daily briefing", "morning brief", or "what's on my plate today"
+- Run as part of the `workflows/morning_routine.md` workflow
+
+## Inputs
+
+Before generating the briefing, read the following files:
+1. `context/projects.md` — active projects and their status
+2. `context/goals.md` — current quarterly and annual goals
+3. `context/people.md` — key contacts and relationships
+4. `memory/decisions.md` — recent decisions for continuity
+5. `inbox/` — any uncaptured or unprocessed items
+
+Use the current system date/time as the date reference. Never fabricate a date.
+
+## Output Format
+
+Produce a briefing in this exact structure:
+
+```
+## 🌅 Daily Briefing — [Day, Month Date, Year]
+
+### 🎯 Today's Top 3 Priorities
+1. [Most important task with brief context]
+2. [Second priority]
+3. [Third priority]
+
+### 📅 Schedule
+- [Time] — [Event or appointment if known]
+- (No scheduled items) if none captured
+
+### 📂 Active Projects — Quick Status
+- **[Project Name]:** [One-line status / what's next]
+
+### 📥 Inbox
+- [N items pending capture/triage] or "(Inbox clear)"
+
+### ⚠️ Flags & Blockers
+- [Anything that needs attention or is at risk]
+
+### 💡 Focus Suggestion
+[One actionable suggestion based on goals and priorities]
+```
+
+## Steps
+
+1. Read all input context files listed above
+2. Identify today's date from system time
+3. Scan `inbox/` for any uncaptured items
+4. Pull top 3 priorities from `context/projects.md` + `context/goals.md`
+5. Identify any flags or blockers from project context
+6. Generate the briefing in the format above
+7. Offer to drill into any section if Arnold asks
+
+## Notes
+
+- Keep the briefing scannable — max 1–2 lines per item
+- If context files are sparse, acknowledge gaps and ask Arnold to fill them in
+- Do not invent tasks or priorities that aren't grounded in the context files
