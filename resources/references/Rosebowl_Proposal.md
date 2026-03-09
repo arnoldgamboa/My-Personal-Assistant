@@ -16,7 +16,7 @@ This proposal outlines the scope and estimated cost for migrating the Rosebowl w
 ## Current Stack
 
 - **Backend/CMS:** Strapi
-- **Frontend:** Existing RosebowlStadium.com
+- **Frontend:** NuxtJS (RosebowlStadium.com)
 
 ---
 
@@ -46,7 +46,7 @@ This proposal outlines the scope and estimated cost for migrating the Rosebowl w
 | **Data migration scripts** (Strapi API → Sanity) | — | — | 8h |
 | **QA / testing** | — | — | 3h |
 | **Backend subtotal** | | | **50h** |
-| **Frontend reconnection** (reconnect existing site to new Sanity backend) | — | — | 10h |
+| **Frontend reconnection** (replace existing Strapi API endpoints with Sanity API in the current NuxtJS frontend) | — | — | 10h |
 | **Total** | | | **60h** |
 
 ---
@@ -65,7 +65,7 @@ This proposal outlines the scope and estimated cost for migrating the Rosebowl w
 - Migration scripts assume Strapi data is accessible via its REST/GraphQL API and is reasonably clean.
 - User management scope covers **editor/admin access via Sanity Studio** only. Public-facing authentication (if any) is out of scope.
 - QA is scoped to functional verification of migrated content and CMS workflows. It does not include load testing or accessibility audits.
-- Design and front-end markup for the existing site are **not modified** under Phase 1 — only the data layer is updated.
+- The existing frontend is built on **NuxtJS**. Frontend reconnection work covers replacing Strapi API calls with Sanity API endpoints only — no UI/markup changes are included in Phase 1.
 
 ---
 
