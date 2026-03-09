@@ -19,7 +19,7 @@
 ## ArwenHQ
 **Status:** In Progress / Pre-Launch (MVP Target: Month 4)
 **Goal:** Build an open-source, local-first project management platform with per-project pricing (the "Open Source Alternative to Basecamp").
-**Deadline:** TBD (Launch sequence defined in PRD)
+**Deadline:** May 2026 (Launch sequence defined in PRD)
 **Stakeholders:** Arnold (Creator/Product)
 **Next Action:** Execute Phase 1 MVP Development (Next.js, Tailwind, MySQL, Prisma, Better Auth)
 **Notes:** 
@@ -30,16 +30,46 @@
 ---
 
 ## Church Prompt Directory Platform
-**Status:** MVP Development (Target: 3 Months)
+**Status:** Maintenance Mode
 **Goal:** A specialized prompt directory platform designed for churches, church leaders, and staff to share, discover, and utilize AI prompts.
-**Deadline:** TBD (MVP Launch)
+**Deadline:** TBD
 **Stakeholders:** Arnold
-**Next Action:** Build MVP with User auth (Clerk), payments (Polar), and Prompt Discovery functionality.
+**Next Action:** SEO and visibility improvements (recurring task, not a daily priority).
 **Notes:** 
 - PRD saved in `resources/references/ChurchPromptDirectory_PRD.md`
 - Key features: Prompt search, user submissions, admin review workflow, Polar subscription gating.
 
 ---
+
+
+---
+
+## Rosebowl Website Redesign
+**Status:** Proposal Phase
+**Goal:** Full redesign of the Rosebowl website — migrate backend from Strapi to Sanity.io and redesign the frontend with Astro.
+**Deadline:** TBD
+**Stakeholders:** Arnold, Colin
+**Next Action:** Prepare and send proposal to Colin
+**Stack:**
+- Current: Strapi (backend)
+- Proposed: Sanity.io (backend/CMS) + Astro (frontend)
+**Notes:**
+- Proposal in preparation (2026-03-09)
+
+---
+
+## Standalone Tasks
+
+- [ ] Follow up on invoice payment for client Mustardseed
+
+---
+
+## Future Project Ideas
+- **PA Mobile App:** Explore how to translate this Markdown-based AI workflow and sub-agent architecture into a standalone mobile app product.
+
+---
+
+## On Hold
 
 ## ReguBrief
 **Status:** Pre-Launch / Phase 1
@@ -51,10 +81,6 @@
 - PRD saved in `resources/references/Regubrief_PRD.md`
 - Pricing: €79/month or €790/year.
 - Marketing strategy: Cold email outreach, LinkedIn organic posts, community engagement.
-
----
-
-## On Hold
 
 <!-- Projects temporarily paused -->
 

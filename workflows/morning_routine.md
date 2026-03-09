@@ -19,9 +19,9 @@ Run this every morning to start the day focused and organized.
    - Route items to projects, memory, or context as appropriate
    - Report how many items were cleared
 
-3. **Draft Reddit Engagement**
-   - Use `skills/reddit_engagement/SKILL.md` to draft 2-3 short, authentic responses for Arnold to post on Reddit (specifically targeting r/startups, r/Entrepreneur, r/smallbusiness, r/Agency).
-   - Base drafts on recent trends or questions in those communities.
+3. **Run Reddit Scanner**
+   - Run `skills/reddit_scanning/SKILL.md` to fetch and analyze the latest posts from the target subreddits.
+   - Present the 5 top engagement opportunities with suggested drafts.
 
 4. **Surface Today's Priorities**
    - Based on the briefing, inbox review, and Reddit engagement, confirm Arnold's top 3 priorities

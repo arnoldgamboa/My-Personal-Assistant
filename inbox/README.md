@@ -15,6 +15,4 @@
 
 ## Pending Items
 
-- [Reminder] Review sanity.io on Monday
-- [Task] Send a proposal to Colin on revising the backend of the Rosebowl website
-- [Task] Research how much revising the Rosebowl backend will cost before sending the email quotation
+*(Inbox is empty)*

@@ -136,6 +136,7 @@ Sub-agents are specialized AI agents that handle specific domains. They each hav
 | Research Agent | `agents/research_agent.md` | Deep research, summarization, fact-checking |
 | Writing Agent | `agents/writing_agent.md` | Drafts, emails, content, documentation |
 | Scheduler Agent | `agents/scheduler_agent.md` | Calendar, deadlines, time-blocking |
+| Reddit Scanner Agent | `agents/reddit_scanner_agent.md` | Scans Reddit posts, identifies value aligned with Arnold's persona, highlights engagement opportunities |
 
 To invoke a sub-agent, read its `.md` file first to understand its capabilities and constraints.
 
@@ -153,6 +154,7 @@ Skills are reusable, documented capabilities. Each skill lives in `skills/<skill
 | Meeting Prep | `skills/meeting_prep/` | Before any meeting |
 | Task Capture | `skills/task_capture/` | When capturing todos, ideas, or action items |
 | Reddit Engagement | `skills/reddit_engagement/` | Drafting short, authentic Reddit comments/posts |
+| Reddit Scanning | `skills/reddit_scanning/` | Scanning 10 subreddits to find high-value engagement posts |
 | Social Media Marketing | `skills/social_media_marketing/` | Writing LinkedIn/Twitter content for Arnold's projects |
 
 ---

@@ -42,6 +42,9 @@ Produce a briefing in this exact structure:
 ### 📂 Active Projects — Quick Status
 - **[Project Name]:** [One-line status / what's next]
 
+### 💬 Community Engagement
+- ⏳ **Reminder:** Remember to run `skills/reddit_scanning/SKILL.md` to find 5 high-value posts to engage with today!
+
 ### 📥 Inbox
 - [N items pending capture/triage] or "(Inbox clear)"
 
@@ -58,9 +61,11 @@ Produce a briefing in this exact structure:
 2. Identify today's date from system time
 3. Scan `inbox/` for any uncaptured items
 4. Pull top 3 priorities from `context/projects.md` + `context/goals.md`
-5. Identify any flags or blockers from project context
-6. Generate the briefing in the format above
-7. Offer to drill into any section if Arnold asks
+5. **Run the Todoist integration script**: Execute `node PA/scripts/fetch_todoist.js` to get real-time pending tasks for today.
+6. Identify any flags or blockers from project context
+7. Generate the briefing in the format above, incorporating the output from the Todoist script into the `🎯 Today's Top 3 Priorities` and `📅 Schedule` sections.
+8. Include the static reminder to run the Reddit Scanner in the `💬 Community Engagement` section.
+9. Offer to drill into any section if Arnold asks
 
 ## Notes
 
