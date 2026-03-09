@@ -58,6 +58,21 @@
 
 ---
 
+---
+
+## The Luxury Leads
+**Status:** In Progress (Redesign)
+**Goal:** Maintain existing website while building a full redesign.
+**Deadline:** ~May 2026 (2 months from March 2026)
+**Stakeholders:** Arnold
+**Next Action:** ⚠️ Set up Dokploy server this week (week of 2026-03-09)
+**Time Allocation:** Minimum 5 hours/week
+**Notes:**
+- Not a top priority — steady, consistent weekly progress
+- Redesign is in progress alongside maintenance of the live site
+
+---
+
 ## Standalone Tasks
 
 - [ ] Follow up on invoice payment for client Mustardseed
