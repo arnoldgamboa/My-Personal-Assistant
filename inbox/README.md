@@ -15,4 +15,4 @@
 
 ## Pending Items
 
-*(Inbox is empty)*
+- [ ] REMINDER: Add ArwenHQ specs and feature updates to context files so PA can monitor progress and suggest next steps.

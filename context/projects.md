@@ -21,11 +21,12 @@
 **Goal:** Build an open-source, local-first project management platform with per-project pricing (the "Open Source Alternative to Basecamp").
 **Deadline:** May 2026 (Launch sequence defined in PRD)
 **Stakeholders:** Arnold (Creator/Product)
-**Next Action:** Execute Phase 1 MVP Development (Next.js, Tailwind, MySQL, Prisma, Better Auth)
+**Next Action:** Continue Phase 1 MVP Development (Next.js, Tailwind, MySQL, Prisma, Better Auth)
 **Notes:** 
 - PRD saved in `resources/references/ArwenHQ_PRD.md`
 - Key differentiators: Per-project pricing, unlimited users, local-first speed (IndexedDB + WebSockets), AGPL v3 license.
 - Marketing strategy: Open-source distribution via GitHub Trending, Hacker News, Reddit (r/selfhosted), Lemmy.
+- **Recent Progress:** Implemented "comment mentions @" feature.
 
 ---
 
@@ -45,16 +46,16 @@
 ---
 
 ## Rosebowl Website Redesign
-**Status:** Proposal Phase
+**Status:** Proposal Sent / Awaiting Feedback
 **Goal:** Full redesign of the Rosebowl website — migrate backend from Strapi to Sanity.io and redesign the frontend with Astro.
 **Deadline:** TBD
 **Stakeholders:** Arnold, Colin
-**Next Action:** Prepare and send proposal to Colin
+**Next Action:** Follow up with Colin on the proposal
 **Stack:**
 - Current: Strapi (backend)
 - Proposed: Sanity.io (backend/CMS) + Astro (frontend)
 **Notes:**
-- Proposal in preparation (2026-03-09)
+- Proposal sent to Colin on 2026-03-09.
 
 ---
 
@@ -65,9 +66,10 @@
 **Goal:** Maintain existing website while building a full redesign.
 **Deadline:** ~May 2026 (2 months from March 2026)
 **Stakeholders:** Arnold
-**Next Action:** ⚠️ Set up Dokploy server this week (week of 2026-03-09)
+**Next Action:** Proceed with the redesign implementation (Dokploy server is now up).
 **Time Allocation:** Minimum 5 hours/week
 **Notes:**
+- Dokploy server successfully created.
 - Not a top priority — steady, consistent weekly progress
 - Redesign is in progress alongside maintenance of the live site
 
