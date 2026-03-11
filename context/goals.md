@@ -13,6 +13,16 @@
 
 ---
 
+## Recurring Commitments
+
+- **Publish 1 blog post/week on Shipped & Unfinished** — arnoldgamboa.dev
+  *Why:* Build in public, grow audience, document the build journey honestly.
+  *Writing day:* Every **Wednesday** — reflect on the week's work and ship a post.
+  *Skill:* `skills/blog_writing/SKILL.md`
+  *Persona:* `context/blog_writer_persona.md`
+
+---
+
 ## Q1 2026 Goals (Jan–Mar)
 
 <!-- Quarterly focus areas -->

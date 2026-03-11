@@ -52,6 +52,11 @@ Produce a briefing in this exact structure:
 ### ⚠️ Flags & Blockers
 - [Anything that needs attention or is at risk]
 
+### ✍️ Blog — Shipped & Unfinished
+- **Only include this section on Wednesdays.**
+- If today is Wednesday: "📝 Blog day. What did you build or decide this week that's worth writing about? Run `skills/blog_writing/SKILL.md` to draft a post."
+- All other days: omit this section entirely.
+
 ### 💡 Focus Suggestion
 [One actionable suggestion based on goals and priorities]
 
@@ -69,7 +74,8 @@ Produce a briefing in this exact structure:
 5. Identify any flags or blockers from project context
 6. Generate the briefing in the format above
 7. Include the static reminder to run the Reddit Scanner in the `💬 Community Engagement` section
-8. Offer to drill into any section if Arnold asks
+8. **If today is Wednesday:** include the `✍️ Blog — Shipped & Unfinished` section. Otherwise, omit it.
+9. Offer to drill into any section if Arnold asks
 
 ## Notes
 
