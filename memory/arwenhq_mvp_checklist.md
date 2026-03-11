@@ -6,6 +6,29 @@
 
 ---
 
+## 🎯 Suggested Priority Order (as of 2026-03-11)
+
+### Do First — This Week (Blockers / Foundational)
+1. **Verify Brevo email end-to-end** — Everything downstream depends on it: invites, account activation, notifications. Nothing else can be properly tested without it.
+2. **[BUG] Team Chat ghost text fix** — ~30 min fix. Knock it out while warming up in the codebase.
+3. **Settings → Client & User onboarding journey** — Entry point for every new user. Pairs with Brevo once email works.
+4. **Inbox redesign + unread counter fix** — Users hit this constantly; broken counter erodes trust fast.
+
+### This Week / Next (Core UX)
+5. Dashboard — connect to real data, add project summary + quick actions
+6. Project > Tasks — default category templates per vertical
+
+### Hold — Needs Decision First
+7. **Reports** — Don't build blind. Spend 30 min sketching what an agency owner wants to see before writing code.
+8. **Invoice Generation** — Biggest scope item. Was out of PRD v1.0 scope but reconsidering as launch differentiator. **Decide this week** — if in, it needs to be on the schedule now. May isn't far.
+
+### Nice-to-Have (Not Launch-Blocking)
+- Favorites + Sidebar hide/show
+- Schedule testing (lower urgency)
+- PRD alignment checks (WebSocket, IndexedDB, search, mobile, Docker)
+
+---
+
 ## Status Key
 - [ ] = Not started
 - [~] = In progress
