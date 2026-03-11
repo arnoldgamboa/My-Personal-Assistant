@@ -52,6 +52,21 @@ Produce a briefing in this exact structure:
 ### ⚠️ Flags & Blockers
 - [Anything that needs attention or is at risk]
 
+### 📧 Regubrief Maintenance
+- **Only include this section on Mondays.**
+- If today is Monday: "📧 Regubrief day. Time to curate and send this week's GDPR enforcement actions to subscribers. Check `context/projects.md` for details."
+- All other days: omit this section entirely.
+
+### ✍️ Blog — Shipped & Unfinished
+- **Only include this section on Wednesdays.**
+- If today is Wednesday: "📝 Blog day. What did you build or decide this week that's worth writing about? Run `skills/blog_writing/SKILL.md` to draft a post."
+- All other days: omit this section entirely.
+
+### 📖 ChurchPromptDirectory Maintenance
+- **Only include this section on Fridays.**
+- If today is Friday: "📖 ChurchPromptDirectory day. Write and publish a new article, prompt guide, or resource for church leaders. Focus on SEO and evergreen content."
+- All other days: omit this section entirely.
+
 ### 💡 Focus Suggestion
 [One actionable suggestion based on goals and priorities]
 
@@ -69,7 +84,11 @@ Produce a briefing in this exact structure:
 5. Identify any flags or blockers from project context
 6. Generate the briefing in the format above
 7. Include the static reminder to run the Reddit Scanner in the `💬 Community Engagement` section
-8. Offer to drill into any section if Arnold asks
+8. **Day-specific sections:**
+   - **Monday:** Include `📧 Regubrief Maintenance` section. Otherwise omit.
+   - **Wednesday:** Include `✍️ Blog — Shipped & Unfinished` section. Otherwise omit.
+   - **Friday:** Include `📖 ChurchPromptDirectory Maintenance` section. Otherwise omit.
+9. Offer to drill into any section if Arnold asks
 
 ## Notes
 
