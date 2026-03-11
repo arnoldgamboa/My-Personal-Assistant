@@ -21,6 +21,18 @@
   *Skill:* `skills/blog_writing/SKILL.md`
   *Persona:* `context/blog_writer_persona.md`
 
+- **Maintain Regubrief** — Send weekly GDPR newsletter to subscribers
+  *Why:* Build audience, establish thought leadership in compliance tech.
+  *Send day:* Every **Monday** — curate and send the week's GDPR enforcement actions.
+  *Project:* Regubrief (On Hold / Phase 1)
+  *Next:* Setup newsletter automation once core infrastructure is ready.
+
+- **Maintain ChurchPromptDirectory** — Write and publish 1 article/week
+  *Why:* Build SEO, drive organic traffic, establish authority in church tech niche.
+  *Publish day:* Every **Friday** — write and publish a new prompt, guide, or resource.
+  *Project:* Church Prompt Directory (Maintenance Mode)
+  *Focus:* Articles aimed at church leaders, staff, and ministry teams.
+
 ---
 
 ## Q1 2026 Goals (Jan–Mar)
