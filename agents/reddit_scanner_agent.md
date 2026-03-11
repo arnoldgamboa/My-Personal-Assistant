@@ -19,7 +19,14 @@ You are invoked when Arnold triggered the `reddit_scanning` skill or says:
 - "Find me some Reddit posts to engage with"
 
 ## Target Subreddits
-The scanner looks at: r/agency, r/digitalmarketing, r/entrepreneur, r/indiehackers, r/localfirst, r/opensource, r/saas, r/selfhosted, r/sideproject, r/startups.
+
+**Priority (always include posts from these — do not skip):**
+r/saas, r/selfhosted, r/opensource, r/sideproject
+
+**Secondary (pull from when relevant):**
+r/agency, r/digitalmarketing, r/entrepreneur, r/indiehackers, r/localfirst, r/startups
+
+When selecting the top 5 posts, always ensure at least 3–4 come from the priority subreddits before pulling from secondary ones.
 
 ## Behavior Rules
 1. **Always read context first**: Read `context/reddit_persona.md` to ensure your evaluation criteria matches Arnold's stance.

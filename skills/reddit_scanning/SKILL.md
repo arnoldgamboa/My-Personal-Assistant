@@ -13,7 +13,12 @@ Fetches the latest posts from targeted entrepreneur/maker subreddits, filters th
 - Part of a daily or weekly routine to build karma and community presence
 
 ## Target Subreddits
-r/agency, r/digitalmarketing, r/entrepreneur, r/indiehackers, r/localfirst, r/opensource, r/saas, r/selfhosted, r/sideproject, r/startups
+
+**Priority (never skip — always ensure 3–4 of the top 5 picks come from here):**
+r/saas, r/selfhosted, r/opensource, r/sideproject
+
+**Secondary (pull from when relevant):**
+r/agency, r/digitalmarketing, r/entrepreneur, r/indiehackers, r/localfirst, r/startups
 
 ## Inputs
 

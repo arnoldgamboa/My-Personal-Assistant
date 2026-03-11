@@ -21,9 +21,18 @@
 **Goal:** Build an open-source, local-first project management platform with per-project pricing (the "Open Source Alternative to Basecamp").
 **Deadline:** May 2026 (Launch sequence defined in PRD)
 **Stakeholders:** Arnold (Creator/Product)
-**Next Action:** Continue Phase 1 MVP Development (Next.js, Tailwind, MySQL, Prisma, Better Auth)
-**Notes:** 
+**Next Action:** Clear pre-launch MVP checklist — see `memory/arwenhq_mvp_checklist.md`
+**Current Focus Areas (2026-03-11):**
+- Dashboard: connect to real data, add project summary + quick actions
+- Inbox: redesign + fix unread counter pill
+- Team Chat: bug fix (ghost text) + unread badge
+- Settings: client/user onboarding journey + Brevo email verification
+- Tasks: default category templates per vertical (Agency, Schools, Churches)
+- Invoice generation: pre-launch decision needed (was out of PRD scope — now reconsidering)
+**Recent Progress:** Implemented "comment mentions @" feature.
+**Notes:**
 - PRD saved in `resources/references/ArwenHQ_PRD.md`
+- Full MVP checklist: `memory/arwenhq_mvp_checklist.md`
 - Key differentiators: Per-project pricing, unlimited users, local-first speed (IndexedDB + WebSockets), AGPL v3 license.
 - Marketing strategy: Open-source distribution via GitHub Trending, Hacker News, Reddit (r/selfhosted), Lemmy.
 - **Recent Progress:** Implemented "comment mentions @" feature.
@@ -46,7 +55,7 @@
 ---
 
 ## Rosebowl Website Redesign
-**Status:** Proposal Sent / Awaiting Feedback
+**Status:** Proposal Sent (Waiting for Response)
 **Goal:** Full redesign of the Rosebowl website — migrate backend from Strapi to Sanity.io and redesign the frontend with Astro.
 **Deadline:** TBD
 **Stakeholders:** Arnold, Colin
@@ -55,7 +64,7 @@
 - Current: Strapi (backend)
 - Proposed: Sanity.io (backend/CMS) + Astro (frontend)
 **Notes:**
-- Proposal sent to Colin on 2026-03-09.
+- Proposal sent to Colin (2026-03-11)
 
 ---
 
@@ -77,7 +86,7 @@
 
 ## Standalone Tasks
 
-- [ ] Follow up on invoice payment for client Mustardseed
+- [x] Follow up on invoice payment for client Mustardseed ✅ 2026-03-11
 
 ---
 

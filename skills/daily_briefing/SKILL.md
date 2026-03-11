@@ -19,7 +19,8 @@ Before generating the briefing, read the following files:
 2. `context/goals.md` — current quarterly and annual goals
 3. `context/people.md` — key contacts and relationships
 4. `memory/decisions.md` — recent decisions for continuity
-5. `inbox/` — any uncaptured or unprocessed items
+5. `memory/arwenhq_mvp_checklist.md` — ArwenHQ pre-launch checklist (surface 1–2 open items daily)
+6. `inbox/` — any uncaptured or unprocessed items
 
 Use the current system date/time as the date reference. Never fabricate a date.
 
@@ -53,6 +54,10 @@ Produce a briefing in this exact structure:
 
 ### 💡 Focus Suggestion
 [One actionable suggestion based on goals and priorities]
+
+### 🔨 ArwenHQ MVP — Daily Nudge
+- Read `memory/arwenhq_mvp_checklist.md` and surface 1–2 checklist items that haven't been touched recently.
+- Prompt: "What did you work on in ArwenHQ yesterday? Want to update the checklist?"
 ```
 
 ## Steps
@@ -61,11 +66,10 @@ Produce a briefing in this exact structure:
 2. Identify today's date from system time
 3. Scan `inbox/` for any uncaptured items
 4. Pull top 3 priorities from `context/projects.md` + `context/goals.md`
-5. **Run the Todoist integration script**: Execute `node PA/scripts/fetch_todoist.js` to get real-time pending tasks for today.
-6. Identify any flags or blockers from project context
-7. Generate the briefing in the format above, incorporating the output from the Todoist script into the `🎯 Today's Top 3 Priorities` and `📅 Schedule` sections.
-8. Include the static reminder to run the Reddit Scanner in the `💬 Community Engagement` section.
-9. Offer to drill into any section if Arnold asks
+5. Identify any flags or blockers from project context
+6. Generate the briefing in the format above
+7. Include the static reminder to run the Reddit Scanner in the `💬 Community Engagement` section
+8. Offer to drill into any section if Arnold asks
 
 ## Notes
 
