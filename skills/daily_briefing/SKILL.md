@@ -138,9 +138,12 @@ After Arnold responds:
     - **Monday:** Include `📧 Regubrief Maintenance` section. Otherwise omit.
     - **Wednesday:** Include `✍️ Blog — Shipped & Unfinished` section. Otherwise omit.
     - **Friday:** Include `📖 ChurchPromptDirectory Maintenance` section. Otherwise omit.
-15. At the end of the briefing, present **today's 3 recommended tasks** as the actionable output
-16. Store today's recommended tasks in `memory/daily_briefing_log.md` for tomorrow's review
-17. Offer to drill into any section if Arnold asks
+15. **CRITICAL — Log today's top 3 immediately after writing them:**
+    - The 3 tasks in `### 🎯 Today's Top 3 Priorities` ARE the recommended tasks
+    - Copy them **verbatim** into `memory/daily_briefing_log.md` as `## [Date] — Recommended for Today`
+    - Do this right after generating the briefing — never skip this step
+    - Tomorrow's Yesterday's Review will pull exactly these 3 task names
+16. Offer to drill into any section if Arnold asks
 
 ## Notes
 
