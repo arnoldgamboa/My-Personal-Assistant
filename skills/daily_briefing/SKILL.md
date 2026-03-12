@@ -20,7 +20,8 @@ Before generating the briefing, read the following files:
 3. `context/people.md` — key contacts and relationships
 4. `memory/decisions.md` — recent decisions for continuity
 5. `memory/arwenhq_mvp_checklist.md` — ArwenHQ pre-launch checklist (surface 1–2 open items daily)
-6. `inbox/` — any uncaptured or unprocessed items
+6. `memory/daily_briefing_log.md` — yesterday's recommended items (for review section)
+7. `inbox/` — any uncaptured or unprocessed items
 
 Use the current system date/time as the date reference. Never fabricate a date.
 
@@ -29,6 +30,18 @@ Use the current system date/time as the date reference. Never fabricate a date.
 Produce a briefing in this exact structure:
 
 ```
+## 📋 Yesterday's Review — [Previous Day]
+
+**What did you accomplish?** Check off what you completed:
+
+- [ ] [Yesterday's recommended task 1]
+- [ ] [Yesterday's recommended task 2]
+- [ ] [Yesterday's recommended task 3]
+
+*(You decide which boxes to check. I'll remember your choices.)*
+
+---
+
 ## 🌅 Daily Briefing — [Day, Month Date, Year]
 
 ### 🎯 Today's Top 3 Priorities
@@ -77,21 +90,65 @@ Produce a briefing in this exact structure:
 
 ## Steps
 
-1. Read all input context files listed above
-2. Identify today's date from system time
-3. Scan `inbox/` for any uncaptured items
-4. Pull top 3 priorities from `context/projects.md` + `context/goals.md`
-5. Identify any flags or blockers from project context
-6. Generate the briefing in the format above
-7. Include the static reminder to run the Reddit Scanner in the `💬 Community Engagement` section
-8. **Day-specific sections:**
-   - **Monday:** Include `📧 Regubrief Maintenance` section. Otherwise omit.
-   - **Wednesday:** Include `✍️ Blog — Shipped & Unfinished` section. Otherwise omit.
-   - **Friday:** Include `📖 ChurchPromptDirectory Maintenance` section. Otherwise omit.
-9. Offer to drill into any section if Arnold asks
+### Phase 1: Yesterday's Review (Completion Tracking)
+
+1. Read `memory/daily_briefing_log.md` to get yesterday's recommended items (if it exists)
+2. Present yesterday's 3 recommended tasks as a **checkbox list**
+3. Ask Arnold to check off what he actually completed
+4. **Capture his response** — only items he confirms are marked as done
+5. Log the results in `memory/daily_briefing_log.md` with timestamp and completion status
+6. Move uncompleted items to today's briefing (as follow-ups or rescheduled tasks)
+
+---
+
+### Phase 2: Today's Briefing (Generation)
+
+7. Read all input context files listed above
+8. Identify today's date from system time
+9. Scan `inbox/` for any uncaptured items
+10. Pull top 3 priorities from `context/projects.md` + `context/goals.md`
+11. Identify any flags or blockers from project context
+12. Generate the briefing in the format above (starting after the Yesterday's Review section)
+13. Include the static reminder to run the Reddit Scanner in the `💬 Community Engagement` section
+14. **Day-specific sections:**
+    - **Monday:** Include `📧 Regubrief Maintenance` section. Otherwise omit.
+    - **Wednesday:** Include `✍️ Blog — Shipped & Unfinished` section. Otherwise omit.
+    - **Friday:** Include `📖 ChurchPromptDirectory Maintenance` section. Otherwise omit.
+15. At the end of the briefing, present **today's 3 recommended tasks** as the actionable output
+16. Store today's recommended tasks in `memory/daily_briefing_log.md` for tomorrow's review
+17. Offer to drill into any section if Arnold asks
 
 ## Notes
 
 - Keep the briefing scannable — max 1–2 lines per item
 - If context files are sparse, acknowledge gaps and ask Arnold to fill them in
 - Do not invent tasks or priorities that aren't grounded in the context files
+
+## Memory Tracking
+
+The daily briefing process maintains a log in `memory/daily_briefing_log.md`:
+
+```markdown
+# Daily Briefing Log
+
+## [Date] — Completion Review
+- ✅ Task 1 (completed)
+- ❌ Task 2 (not completed — rescheduled to [date])
+- ✅ Task 3 (completed)
+
+**Notes:** [Any context Arnold adds]
+
+---
+
+## [Date] — Recommended for Today
+- Task A
+- Task B
+- Task C
+```
+
+This creates a feedback loop:
+1. **Yesterday:** Present what was recommended
+2. **Today:** Record what was done
+3. **Tomorrow:** Build on completed work and refocus
+
+Arnold's completion data is logged to understand patterns, dependencies, and realistic capacity.
