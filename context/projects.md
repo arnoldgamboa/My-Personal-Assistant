@@ -61,12 +61,14 @@
 **Goal:** Full redesign of the Rosebowl website — migrate backend from Strapi to Sanity.io and redesign the frontend with Astro.
 **Deadline:** TBD
 **Stakeholders:** Arnold, Colin
-**Next Action:** Follow up with Colin on the proposal
+**Next Action:** Wait for response; send the next follow-up if no reply by 2026-03-18 (Wednesday).
 **Stack:**
 - Current: Strapi (backend)
 - Proposed: Sanity.io (backend/CMS) + Astro (frontend)
 **Notes:**
 - Proposal sent to Colin (2026-03-11)
+- Followed up with Colin on the proposal (2026-03-12).
+- Follow-up checkpoint set: 2026-03-18 (Wednesday) — send a second follow-up if no response.
 
 ---
 
