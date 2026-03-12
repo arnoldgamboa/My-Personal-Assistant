@@ -16,3 +16,4 @@
 ## Pending Items
 
 - [ ] REMINDER: Add ArwenHQ specs and feature updates to context files so PA can monitor progress and suggest next steps.
+- [ ] REMINDER: Register to the conference tomorrow
