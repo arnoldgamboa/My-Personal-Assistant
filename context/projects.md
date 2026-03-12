@@ -45,9 +45,11 @@
 **Deadline:** TBD
 **Stakeholders:** Arnold
 **Next Action:** SEO and visibility improvements (recurring task, not a daily priority).
-**Notes:** 
+**Current Stats:** ~97 active users (approaching 100-user MVP goal)
+**Notes:**
 - PRD saved in `resources/references/ChurchPromptDirectory_PRD.md`
 - Key features: Prompt search, user submissions, admin review workflow, Polar subscription gating.
+- Blog strategy: `context/church_prompt_directory_blog_strategy.md` — read this before writing any blog post for this project.
 
 ---
 
