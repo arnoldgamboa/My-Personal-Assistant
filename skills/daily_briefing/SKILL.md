@@ -30,15 +30,33 @@ Use the current system date/time as the date reference. Never fabricate a date.
 Produce a briefing in this exact structure:
 
 ```
-## 📋 Yesterday's Review — [Previous Day]
+## 📋 Yesterday's Review — [Previous Day, e.g. "Wednesday, March 12"]
 
-**What did you accomplish?** Check off what you completed:
+**Before we get to today — what did you actually get done yesterday?**
 
-- [ ] [Yesterday's recommended task 1]
-- [ ] [Yesterday's recommended task 2]
-- [ ] [Yesterday's recommended task 3]
+Use the AskUserQuestion tool with multiSelect: true to present yesterday's recommended tasks as real interactive checkboxes. Pull the exact task names and project context from the most recent "Recommended for Today" entry in `memory/daily_briefing_log.md`.
 
-*(You decide which boxes to check. I'll remember your choices.)*
+Each option should include:
+- label: The task name (exact text from the log)
+- description: The project it belongs to and why it mattered
+
+Example question config:
+  question: "Which of yesterday's recommended tasks did you complete?"
+  header: "Yesterday"
+  multiSelect: true
+  options:
+    - label: "Verify Brevo email end-to-end"
+      description: "ArwenHQ — foundational blocker for invites, activation, and notifications"
+    - label: "Fix Team Chat ghost text bug"
+      description: "ArwenHQ — ~30 min fix, clears UX debt before launch"
+    - label: "Follow up with Colin on Rosebowl proposal"
+      description: "Rosebowl — proposal sent 2026-03-11, no response yet"
+
+After Arnold responds:
+- Log ✅ for each selected item
+- Log ❌ for each unselected item
+- Append the completion review to `memory/daily_briefing_log.md`
+- Carry uncompleted items forward as follow-ups in today's briefing
 
 ---
 
@@ -92,12 +110,18 @@ Produce a briefing in this exact structure:
 
 ### Phase 1: Yesterday's Review (Completion Tracking)
 
-1. Read `memory/daily_briefing_log.md` to get yesterday's recommended items (if it exists)
-2. Present yesterday's 3 recommended tasks as a **checkbox list**
-3. Ask Arnold to check off what he actually completed
-4. **Capture his response** — only items he confirms are marked as done
-5. Log the results in `memory/daily_briefing_log.md` with timestamp and completion status
-6. Move uncompleted items to today's briefing (as follow-ups or rescheduled tasks)
+1. Read `memory/daily_briefing_log.md` — find the most recent **"Recommended for Today"** entry
+2. Extract each task's exact name and its associated project from the log
+3. Use **`AskUserQuestion` with `multiSelect: true`** to present the tasks as real interactive checkboxes:
+   - `question`: "Which of yesterday's recommended tasks did you complete?"
+   - `header`: "Yesterday"
+   - Each `option.label` = exact task name from the log
+   - Each `option.description` = project name + one-line reason it mattered
+4. Wait for Arnold's response — selected = done, unselected = not done
+5. Append a **Completion Review** block to `memory/daily_briefing_log.md`:
+   - ✅ for each selected task
+   - ❌ for each unselected task (note: "carry forward")
+6. Any ❌ tasks surface in today's briefing under **⚠️ Flags & Blockers** as "Carried over from yesterday"
 
 ---
 
