@@ -58,6 +58,23 @@
 |------|------|-------|
 | | | |
 
+## Open Hires
+
+| Role | Candidate | Date Interviewed | Impression | Status |
+|------|-----------|-----------------|------------|--------|
+| Software Engineer | Kevin Basence | 2026-03-13 | Positive — recommend advancing | Considering |
+
+### Interview Notes
+
+#### Kevin Basence — Software Engineer
+- Non-traditional background: transitioned from electronics engineering to front-end via self-directed learning
+- Strong communicator; articulate and measured throughout the interview
+- Healthy attitude toward team culture: values collaboration, shared problem-solving, no-blame environments
+- Handles disagreements maturely — seeks to understand first, finds compromise, escalates rather than dominating
+- Comfortable with 2-day office cadence
+- Describes himself as hardworking and passionate about programming
+- **Rule:** Graduate to `context/people.md` only if hired as a direct report
+
 ## Current Priorities
 
 *(Arnold to update as priorities shift)*

@@ -35,3 +35,4 @@
 **Contact:** TBD
 **Notes:** One of Colin's partners. Arnold also works with Brian on several projects outside Terminus and Rosebowl.
 **Last Interaction:** TBD
+
