@@ -89,6 +89,20 @@
 
 ---
 
+## Managers of Wealth
+**Status:** Active (Legacy Maintenance)
+**Goal:** Maintain legacy website codebase while a new vendor rebuilds the site.
+**Deadline:** TBD — ongoing until vendor completes the rework (timeline unclear)
+**Stakeholders:** Arnold (legacy maintainer), unknown new vendor (rebuilding)
+**Next Action:** Continue legacy maintenance as needed; clarify end-of-engagement timeline when possible.
+**Notes:**
+- Arnold has maintained the website for ~10 years
+- A separate vendor is currently reworking the site
+- Arnold's role is limited to legacy code maintenance — duration uncertain
+- Flag when/if the vendor signals handoff or end of Arnold's involvement
+
+---
+
 ## Standalone Tasks
 
 - [x] Follow up on invoice payment for client Mustardseed ✅ 2026-03-11
