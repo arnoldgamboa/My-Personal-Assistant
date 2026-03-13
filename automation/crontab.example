@@ -1,0 +1,5 @@
+# Weekday morning routine (Mon-Fri, 07:30 local machine time)
+30 7 * * 1-5 cd /Users/arnold.gamboa/Documents/Out/My-Personal-Assistant && ./scripts/automation/run_weekday_morning.sh >> /tmp/pa-morning.log 2>&1
+
+# Friday weekly review (Fri, 17:30 local machine time)
+30 17 * * 5 cd /Users/arnold.gamboa/Documents/Out/My-Personal-Assistant && ./scripts/automation/run_friday_weekly_review.sh >> /tmp/pa-weekly.log 2>&1

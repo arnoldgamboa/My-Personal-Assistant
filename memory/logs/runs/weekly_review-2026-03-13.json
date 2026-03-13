@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0.0",
+  "workflow": "weekly_review",
+  "date": "2026-03-13",
+  "week_window_start": "2026-03-06",
+  "week_window_end": "2026-03-13",
+  "wins": [
+    "Created the blog",
+    "Messaged Colin",
+    "Wrote and published ChurchPromptDirectory article",
+    "Register for the conference happening tomorrow",
+    "Make Invoice Generation decision — **CONFIRMED IN MVP**",
+    "Submit Phone/Medicine Expense reimbursement (Bally's — 14th) — verified submitted",
+    "Registered for the conference",
+    "Confirmed Invoice Generation in ArwenHQ MVP scope",
+    "Submitted Phone/Medicine expense reimbursement",
+    "Set Bingo PaaS Retro reminder"
+  ],
+  "misses": [
+    "Verify Brevo email end-to-end in ArwenHQ",
+    "Fix Team Chat ghost text bug in ArwenHQ"
+  ],
+  "next_week_priorities": [
+    "ArwenHQ: Clear pre-launch MVP checklist — see `memory/arwenhq_mvp_checklist.md`",
+    "Church Prompt Directory Platform: SEO and visibility improvements (recurring task, not a daily priority).",
+    "Rosebowl Website Redesign: Wait for response; send the next follow-up if no reply by 2026-03-18 (Wednesday).",
+    "The Luxury Leads: Proceed with the redesign implementation (Dokploy server is now up).",
+    "ReguBrief: Setup newsletter automation with Astro, Supabase, Stripe, and Sonar Pro AI generation."
+  ],
+  "preaching_status": {
+    "upcoming_sunday": "2026-03-15",
+    "is_preaching": false
+  }
+}

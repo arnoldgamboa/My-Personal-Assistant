@@ -8,6 +8,14 @@ Run at the end of each week (Friday afternoon) or start of the next (Monday morn
 
 ## Steps
 
+### 0. Deterministic Run Option
+
+- Preferred non-interactive command:
+  - `./run weekly_review --date YYYY-MM-DD --non-interactive`
+- Output artifacts:
+  - `memory/logs/runs/weekly_review-YYYY-MM-DD.json`
+  - `memory/logs/status/status-YYYY-MM-DD-weekly_review.json`
+
 ### 1. Reflect on the Past Week — All Three Roles
 
 Ask Arnold:

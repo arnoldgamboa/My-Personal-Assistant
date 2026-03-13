@@ -33,6 +33,37 @@ Simply open this project in your Antigravity workspace and start working. The as
 - Follow workflow files for structured processes
 - Log important information to memory
 
+## Deterministic Runner
+
+This repo now includes a markdown-first deterministic runner:
+
+```bash
+./run <workflow_name> --date YYYY-MM-DD --non-interactive
+```
+
+Supported workflows:
+- `morning_routine`
+- `weekly_review`
+- `task_capture`
+
+Examples:
+
+```bash
+./run morning_routine --date 2026-03-16 --non-interactive
+./run weekly_review --date 2026-03-20 --non-interactive
+./run task_capture --date 2026-03-16 --non-interactive --input "- Decide launch date\n- Idea: create onboarding checklist"
+```
+
+Run artifacts:
+- `memory/logs/runs/`
+- `memory/logs/status/`
+- `memory/state/operating_state.json`
+
+Contracts:
+- `contracts/operating_state_contract.md`
+- `contracts/daily_brief.schema.json`
+- `contracts/weekly_review.schema.json`
+
 ## Contributing (to yourself)
 
 Whenever you find yourself repeating a task or prompt, capture it as a new `skill/` or `workflow/` entry. The system grows with your usage.

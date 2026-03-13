@@ -8,6 +8,14 @@ Run this every morning to start the day focused and organized across Arnold's th
 
 ## Steps
 
+### 0. Deterministic Run Option
+
+- Preferred non-interactive command:
+  - `./run morning_routine --date YYYY-MM-DD --non-interactive`
+- Output artifacts:
+  - `memory/logs/runs/morning_routine-YYYY-MM-DD.json`
+  - `memory/logs/status/status-YYYY-MM-DD-morning_routine.json`
+
 1. **Generate Daily Briefing**
    - Use the `skills/daily_briefing/SKILL.md` skill
    - Read `context/projects.md`, `context/goals.md`, `context/people.md`

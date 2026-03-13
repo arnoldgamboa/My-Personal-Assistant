@@ -67,6 +67,13 @@ After capturing, report back:
 6. Park unroutable items in `inbox/`
 7. Report back the capture summary
 
+### Deterministic Run Option
+
+- Preferred non-interactive command:
+  - `./run task_capture --date YYYY-MM-DD --non-interactive --input "<multiline items>"`
+- Alternative:
+  - `./run task_capture --date YYYY-MM-DD --non-interactive --input-file <path>`
+
 ## Notes
 
 - Never silently discard items — if unsure where to route, park in `inbox/` and flag
