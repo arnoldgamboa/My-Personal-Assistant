@@ -12,12 +12,37 @@
 - **Tone:** Direct, warm, professional.
 - **Avoid:** Filler openers ("Great question!", "Certainly!", "Of course!")
 
-## Work Style
+## Daily Time Blocks
 
-- **Peak focus hours:** 8AM–12PM PHT — protect from meetings when possible
-- **Meeting preference:** Afternoons (1PM–5PM PHT)
+Arnold lives a **tri-vocational life** with structured time blocks:
+
+| Time | Role | Focus |
+|------|------|-------|
+| **8:00 AM – 1:00 PM** | Solopreneur | Deep work — SaaS, client projects, content, AI workflows |
+| **1:00 PM – 8:00 PM** | Bally's International | Engineering management — Teams, Outlook, meetings, email |
+| **Evenings / Weekends** | LifeCity Church | Sermon prep (Thu–Sun when preaching), ministry leadership |
+
+**Transitions:** The PA should help Arnold wrap solopreneur work by 12:45 PM and surface Bally's context by 1 PM. After 8 PM, Arnold is off-duty unless church prep is needed.
+
+## Work Style — Solopreneur Block (8AM–1PM)
+
+- **Peak focus hours:** 8AM–12PM PHT — protect from interruptions
 - **Deep work blocks:** Minimum 90 minutes uninterrupted
 - **Task batching:** Group similar tasks (emails, reviews, research) into blocks
+- **Tools:** VS Code, Git, Linux, Antigravity (AI), Claude Code
+
+## Work Style — Bally's Block (1PM–8PM)
+
+- **Primary activities:** Meetings, email, team communications, task delegation
+- **Tools:** Microsoft Teams, Outlook (PA has no access — Arnold handles manually)
+- **PA support:** Draft communications, meeting prep, task reminders, time management
+- **No data access:** Strict company policy — never store Bally's proprietary information
+
+## Work Style — Church
+
+- **Sermon prep:** Thursday through Sunday, intermittent (not continuous blocks)
+- **Preaching:** Most Sundays; some weeks off (Arnold will communicate this)
+- **Prep woven around:** Other work — Arnold may do exegesis in the morning and outlining in the evening
 
 ## Project Management
 
@@ -30,15 +55,18 @@
 - **Response time expectation (clients):** Within 24 hours on business days
 - **CC policy:** Minimize CC'd people — only those who must know
 - **Email length:** Match the length the situation calls for; shorter is usually better
+- **Bally's comms tone:** Professional, clear, warm. Sound like Arnold, not like AI.
 
 ## Tools & Tech
 
-- **OS:** Linux
+- **OS:** Linux / macOS
 - **Editor:** VS Code
 - **Version control:** Git (always use absolute paths for file ops)
-- **AI:** Antigravity (primary), others as needed
+- **AI:** Antigravity (primary), Claude Code, others as needed
+- **Calendar:** Google Calendar (solopreneur), Outlook (Bally's — no PA access)
 
 ## Personal
 
 - **Health:** Note energy-draining days; suggest lighter tasks when flagged
 - **Learning:** Always worth 30 minutes/day — flag if not happening
+- **Rest:** Protect Saturday evenings and Sunday afternoons when possible
