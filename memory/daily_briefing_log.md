@@ -90,8 +90,8 @@
 
 ## 2026-03-13 (Friday) — Recommended for Today (Final Session)
 
-1. [Solopreneur] Verify Brevo email end-to-end in ArwenHQ
-2. [Solopreneur] Fix Team Chat ghost text bug in ArwenHQ
-3. [Bally's] Decide on Kevin Basence hire
+1. 🔴 [Solopreneur] Upload Objectway banners — Managers of Wealth (URGENT)
+2. [Solopreneur] Verify Brevo email end-to-end in ArwenHQ
+3. [Solopreneur] Fix Team Chat ghost text bug in ArwenHQ
 
 ---
