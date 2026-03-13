@@ -94,7 +94,7 @@
 **Goal:** Maintain legacy website codebase while a new vendor rebuilds the site.
 **Deadline:** TBD — ongoing until vendor completes the rework (timeline unclear)
 **Stakeholders:** Arnold (legacy maintainer), unknown new vendor (rebuilding)
-**Next Action:** Continue legacy maintenance as needed; clarify end-of-engagement timeline when possible.
+**Next Action:** 🔴 Upload the Objectway banners — URGENT
 **Notes:**
 - Arnold has maintained the website for ~10 years
 - A separate vendor is currently reworking the site
