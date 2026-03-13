@@ -19,6 +19,10 @@
 - **Arnold will communicate** at the start of each week whether he's preaching or not
 - When Arnold is **not preaching**, sermon prep tasks are removed from the week
 
+### Weekly Overrides
+
+- **Sunday, March 15, 2026:** Arnold is **not preaching**. Remove Thursday-Sunday sermon prep items for this week.
+
 ## Sermon Preparation Schedule
 
 When Arnold **is** preaching:
