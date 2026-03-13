@@ -45,3 +45,12 @@
 1. Verify Brevo email end-to-end in ArwenHQ
 2. Fix Team Chat ghost text bug in ArwenHQ
 3. Make Invoice Generation decision for ArwenHQ MVP scope
+
+---
+
+## 2026-03-13 (Friday) — Completion Review (Continued)
+
+- ✅ Make Invoice Generation decision — **CONFIRMED IN MVP**
+- ✅ Submit Phone/Medicine Expense reimbursement (Bally's — 14th)
+- ❌ Verify Brevo email end-to-end in ArwenHQ (still pending)
+- ❌ Fix Team Chat ghost text bug in ArwenHQ (still pending)

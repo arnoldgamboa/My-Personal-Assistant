@@ -64,6 +64,27 @@
 
 ---
 
+## Recurring Tasks
+
+### Weekly
+
+| Day | Task | Notes |
+|-----|------|-------|
+| Friday (evening) | Work on Tempo | Regular Friday night session |
+
+### Monthly
+
+| Due Date | Task | Notes |
+|----------|------|-------|
+| 10th of month | Submit Liquidation Expense | Monthly expense submission |
+| 14th of month | Submit Phone/Medicine Expense | Monthly expense submission |
+
+**Briefing rules for Bally's monthly tasks:**
+- Surface 2 days before due date: `⚠️ Due in 2 days: [Task]`
+- Surface day of: `🔴 Due today: [Task]`
+
+---
+
 ## How the PA Helps with Bally's
 
 Since we can't access Bally's systems directly, our support model is:

@@ -115,9 +115,7 @@ GOD (The Text & Theology)
 
 YOU (Closing Challenge & Application)
 When [situation from the text]:
-1. [Specific action step]
-2. [Specific action step]
-3. [Specific action step]
+[Specific action step, expound it, be practical in daily life]
 
 **Where is Jesus in this?**
 [Connect the entire message back to Christ — His person, work, character, or gospel. Show how Jesus is the source/example/motivation for the application.]

@@ -28,8 +28,8 @@
 - Team Chat: bug fix (ghost text) + unread badge
 - Settings: client/user onboarding journey + Brevo email verification
 - Tasks: default category templates per vertical (Agency, Schools, Churches)
-- Invoice generation: pre-launch decision needed (was out of PRD scope — now reconsidering)
-**Recent Progress:** Implemented "comment mentions @" feature.
+- Invoice generation: **✅ CONFIRMED IN MVP (2026-03-13)** — time tracking on Todos + invoice generator + PDF output via Brevo
+**Recent Progress:** Implemented "comment mentions @" feature. Confirmed Invoice Generation in MVP scope.
 **Notes:**
 - PRD saved in `resources/references/ArwenHQ_PRD.md`
 - Full MVP checklist: `memory/arwenhq_mvp_checklist.md`

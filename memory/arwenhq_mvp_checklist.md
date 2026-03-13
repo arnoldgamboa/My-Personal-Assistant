@@ -123,9 +123,9 @@
 ---
 
 ## 🧾 Invoice Generation (Pre-Launch Big Feature)
-> ⚠️ Note: Time tracking was explicitly OUT OF SCOPE in PRD v1.0 (Section 5.3). Arnold has reconsidered — this is now a potential pre-launch differentiator.
+> ✅ DECISION (2026-03-13): **IN MVP.** Arnold confirmed this is a launch feature. Time tracking was out of PRD v1.0 scope but has been added as a pre-launch differentiator targeting the Agency Owner persona.
 
-- [ ] Decision needed: Confirm this is going into MVP or post-MVP v1.1
+- [x] Decision needed: Confirm this is going into MVP or post-MVP v1.1 — **CONFIRMED IN** ✅
 - [ ] Time tracking on Todos (log time spent per task)
 - [ ] Invoice generator that pulls time-tracked tasks automatically
 - [ ] Invoice line items editable before sending

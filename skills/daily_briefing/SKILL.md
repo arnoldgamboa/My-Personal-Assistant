@@ -20,10 +20,11 @@ Before generating the briefing, read the following files:
 3. `context/people.md` — key contacts and relationships
 4. `context/ballys.md` — Bally's meetings, tasks, and priorities Arnold has shared
 5. `context/lifecity_church.md` — preaching schedule, sermon series, prep status
-6. `memory/decisions.md` — recent decisions for continuity
-7. `memory/arwenhq_mvp_checklist.md` — ArwenHQ pre-launch checklist (surface 1–2 open items daily)
-8. `memory/daily_briefing_log.md` — yesterday's recommended items (for review section)
-9. `inbox/` — any uncaptured or unprocessed items
+6. `context/finances.md` — monthly bills and payment schedule
+7. `memory/decisions.md` — recent decisions for continuity
+8. `memory/arwenhq_mvp_checklist.md` — ArwenHQ pre-launch checklist (surface 1–2 open items daily)
+9. `memory/daily_briefing_log.md` — yesterday's recommended items (for review section)
+10. `inbox/` — any uncaptured or unprocessed items
 
 Use the current system date/time as the date reference. Never fabricate a date.
 
@@ -107,9 +108,33 @@ After Arnold responds:
 - [Anything that needs attention or is at risk — across all roles]
 - [Carried-over items from yesterday]
 
+### 💳 Bills & Payments
+- Read `context/finances.md` and compute based on today's date (system date)
+- **Show only relevant items** — due today, tomorrow, or within 3 days
+- Use these labels:
+  - 🔴 **Due today:** [Payment name] — ₱[amount if known]
+  - ⚠️ **Due tomorrow:** [Payment name] — ₱[amount if known]
+  - 📅 **Due in [N] days:** [Payment name] — ₱[amount if known]
+- **14th of month:** Show RCBC deposit and UB/Citibank debt payment as a sequence — "Deposit first, then pay". Also flag: Submit Phone/Medicine Expense (Bally's)
+- **10th of month:** Also flag: Submit Liquidation Expense (Bally's)
+- **AXA and domain renewal:** Flag 5 days in advance
+- **End-of-month items:** "Last day of month" = last calendar day of the current month
+- **Weekend rule:** If a due date falls on Saturday/Sunday, flag it the Friday before: "Due Monday — process today if needed"
+- If nothing is due within 3 days: omit this section entirely (no need to show the full schedule)
+
 ### Regubrief Maintenance
 - **Only include this section on Mondays.**
 - If today is Monday: "Regubrief day. Time to curate and send this week's GDPR enforcement actions."
+- All other days: omit this section entirely.
+
+### LifeCity — Monday Tasks
+- **Only include this section on Mondays.**
+- If today is Monday: "Send Manny GCash — ₱700 (LifeCity)"
+- All other days: omit this section entirely.
+
+### LifeCity — Tuesday Task
+- **Only include this section on Tuesdays.**
+- If today is Tuesday: "Send Song List to Music Team for this Sunday's worship set."
 - All other days: omit this section entirely.
 
 ### Blog — Shipped & Unfinished
@@ -120,6 +145,11 @@ After Arnold responds:
 ### ChurchPromptDirectory Maintenance
 - **Only include this section on Fridays.**
 - If today is Friday: "ChurchPromptDirectory day. Write and publish a new article for church leaders."
+- All other days: omit this section entirely.
+
+### Bally's — Friday Evening
+- **Only include this section on Fridays.**
+- If today is Friday: "Work on Tempo tonight (Bally's)."
 - All other days: omit this section entirely.
 
 ### Thursday Sermon Prep Kickoff
@@ -168,13 +198,15 @@ After Arnold responds:
     - 1 church task if it's a sermon prep day
     - If only solopreneur tasks exist, that's fine — don't force balance
 12. Identify any flags or blockers from project context
+12a. **Check finances:** Read `context/finances.md`, compute today's date against all due dates, surface any items due today, tomorrow, or within 3 days in the `💳 Bills & Payments` section. Follow the weekend rule and the 14th-of-month sequence logic.
 13. Generate the briefing in the format above (starting after the Yesterday's Review section)
 14. Include the static reminder to run the Reddit Scanner in the Community Engagement section
 15. **Day-specific sections:**
-    - **Monday:** Include `Regubrief Maintenance`. Otherwise omit.
+    - **Monday:** Include `Regubrief Maintenance` + `LifeCity — Monday Tasks` (Manny GCash ₱700). Otherwise omit.
+    - **Tuesday:** Include `LifeCity — Tuesday Task` (Song List to Music Team). Otherwise omit.
     - **Wednesday:** Include `Blog — Shipped & Unfinished`. Otherwise omit.
     - **Thursday (preaching week):** Include `Thursday Sermon Prep Kickoff`. Otherwise omit.
-    - **Friday:** Include `ChurchPromptDirectory Maintenance`. Otherwise omit.
+    - **Friday:** Include `ChurchPromptDirectory Maintenance` + `Bally's — Friday Evening` (Tempo). Otherwise omit.
 16. **CRITICAL — Log today's top 3 immediately after writing them:**
     - The 3 tasks in `### Today's Top 3 Priorities` ARE the recommended tasks
     - Copy them **verbatim** (with role tags) into `memory/daily_briefing_log.md` as `## [Date] — Recommended for Today`

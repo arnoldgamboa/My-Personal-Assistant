@@ -117,6 +117,15 @@ Every sermon outline **must** include ALL of these:
 - **Andy Stanley** — Sermon structure (ME-WE-GOD-YOU-US), communication clarity, memorable hooks
 - *(Arnold to add other influences if applicable)*
 
+## Weekly Church Tasks
+
+These recur every week regardless of whether Arnold is preaching:
+
+| Day | Task | Details |
+|-----|------|---------|
+| Monday | Send Manny GCash | ₱700 — also tracked in `context/finances.md` |
+| Tuesday | Send Song List to Music Team | Coordinate Sunday worship set |
+
 ## Ministry Leadership
 
 - Arnold leads people in their ministries

@@ -34,71 +34,97 @@ Supports Arnold's sermon preparation process from Thursday through Sunday.
 2. **Invoke Sermon Agent** — Read `agents/sermon_agent.md` and use it for:
    - Contextual study of the passage (historical, literary, theological)
    - Key themes and cross-references
-   - Original language insights where helpful
+   - Original language insights (Hebrew/Greek) where they add clarity
 3. **Present research summary** — Structured, scannable format
-4. **Identify the Big Idea** — One core sentence the sermon is built around
-5. **Ask Arnold:** "Does this big idea resonate, or do you want to adjust the angle?"
+4. **Identify the Main Thought** — One core sentence the sermon is built around
+5. **Draft the ME and WE sections** — Opening hook and shared human experience
+6. **Ask Arnold:** "Does this main thought resonate, or do you want to adjust the angle?"
 
 ### Phase 2: Outline Development (Friday)
 
-1. **Build an outline** based on Arnold's methodology (from `context/lifecity_church.md`)
-2. **Suggest structure:**
-   - Introduction / hook
-   - Main points (typically 2–4)
-   - Transitions between points
-   - Application sections
-   - Conclusion / call to action
-3. **Source illustrations** — Stories, analogies, real-world examples
-4. **Present the outline** — Ask Arnold for feedback and adjustments
+1. **Build the full ME-WE-GOD-YOU-US outline** based on Arnold's methodology (from `context/lifecity_church.md`)
+2. **GOD section must include:**
+   - Background Context (historical, literary, theological)
+   - Main points (typically 2–4) drawn from the text
+   - Memorable lines (italicized) for each point
+   - Original language insights where helpful
+3. **YOU section must include:**
+   - Specific, practical application steps
+   - **"Where is Jesus in this?"** — Connect the entire message back to Christ
+4. **Source illustrations** — Stories, analogies, real-world examples. Fresh, culturally relevant, not clichéd.
+5. **Draft memorable lines** throughout — quotable, sticky phrases
+6. **Present the outline** — Ask Arnold for feedback and adjustments
 
 ### Phase 3: Refinement (Saturday)
 
 1. **Finalize the outline** based on Arnold's feedback
-2. **Strengthen weak sections** — Tighten illustrations, sharpen applications
-3. **Review flow** — Does it move logically? Is the big idea clear throughout?
-4. **Produce final sermon prep document**
+2. **Ensure all required components are present:** Main Thought, Opening Hook, Memorable Lines, Background Context, Closing Challenge, "Where is Jesus in this?", Final Memorable Line, Memory Verse, 5 Discussion Questions
+3. **Review flow** — Does it move logically through ME → WE → GOD → YOU → US?
+4. **Tighten memorable lines** — Are they truly sticky and quotable?
+5. **Produce final sermon outline document**
 
 ### Phase 4: Delivery Prep (Sunday morning)
 
-1. **Quick review** — If Arnold asks, provide a condensed version of key points
+1. **Quick review** — If Arnold asks, provide a condensed bullet-point version
 2. **Last-minute adjustments** — Minor tweaks only
 
 ## Output Format
 
+The final output must follow the **ME-WE-GOD-YOU-US** structure exactly:
+
 ```markdown
-## Sermon Prep: [Title / Passage]
-**Series:** [Series name if applicable]
-**Date:** [Sunday date]
-**Preacher:** Arnold Gamboa
+SERMON OUTLINE
+Text: [Book Chapter:Verses]
+Title: [Sermon Title]
+Series: [Series name if applicable]
+Date: [Sunday date]
+Preacher: Arnold Gamboa
 
-### Big Idea
-[One sentence]
+**Main Thought:** [One sentence — the core idea of the whole message]
 
-### Outline
+---
 
-**Introduction**
-- [Hook / opening]
+ME (Opening Hook)
+[Personal, relatable story or scenario that creates tension]
+*Memorable Line: [Sticky, quotable phrase]*
 
-**Point 1: [Title]**
-- [Key thought]
-- [Supporting scripture]
-- [Illustration]
+WE (Shared Human Experience)
+[Broaden to universal. "We all know what it's like to..."]
+*Memorable Line: [Sticky phrase]*
 
-**Point 2: [Title]**
-- [Key thought]
-- [Supporting scripture]
-- [Illustration]
+GOD (The Text & Theology)
 
-**Point 3: [Title]**
-- [Key thought]
-- [Supporting scripture]
-- [Illustration]
+**Background Context**
+[Historical, literary, theological context. Original language insights where helpful.]
 
-**Application**
-- [Practical takeaway]
+**1. [Main Point 1] (vv. X–Y)**
+[Key thought, supporting explanation]
+*Memorable Line: [Sticky phrase]*
 
-**Conclusion**
-- [Closing thought / call to action]
+**2. [Main Point 2] (vv. X–Y)**
+[Key thought, supporting explanation]
+*Memorable Line: [Sticky phrase]*
+
+**3. [Main Point 3] (vv. X–Y)**
+[Key thought, supporting explanation]
+*Memorable Line: [Sticky phrase]*
+
+YOU (Closing Challenge & Application)
+[Specific, practical next steps]
+
+**Where is Jesus in this?**
+[Connect the message to Christ — His person, work, character, or gospel]
+*Memorable Line: [Final sticky takeaway]*
+
+**Memory Verse**
+[Book Chapter:Verse] — "[Full verse text]"
+
+**Discussion Questions**
+1. [Personal reflection]
+2. [Vulnerability/honesty]
+3. [Practical application]
+4. [Cultural/worldview challenge]
+5. [Specific next step for the week]
 ```
 
 ## Notes
