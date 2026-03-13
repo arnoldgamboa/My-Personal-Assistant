@@ -85,3 +85,13 @@
 
 - Not preaching Sunday (Mar 15) — no sermon prep tasks this weekend
 - Conference Saturday (Mar 14) — registered
+
+---
+
+## 2026-03-13 (Friday) — Recommended for Today (Final Session)
+
+1. [Solopreneur] Verify Brevo email end-to-end in ArwenHQ
+2. [Solopreneur] Fix Team Chat ghost text bug in ArwenHQ
+3. [Bally's] Decide on Kevin Basence hire
+
+---
