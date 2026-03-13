@@ -12,6 +12,7 @@
 - ✅ Test the new flow
 - ✅ Created the blog
 - ✅ Messaged Colin
+- ✅ Wrote and published ChurchPromptDirectory article (published a day early, Thursday)
 
 ---
 
@@ -20,3 +21,27 @@
 1. Verify Brevo email end-to-end in ArwenHQ
 2. Fix Team Chat ghost text bug in ArwenHQ
 3. Follow up with Colin on Rosebowl proposal
+
+---
+
+## 2026-03-13 (Friday) — Recommended for Today (Updated)
+
+1. Register for the conference happening tomorrow.
+2. Verify Brevo email end-to-end in ArwenHQ.
+3. Fix Team Chat ghost text bug in ArwenHQ.
+
+---
+
+## 2026-03-13 (Friday) — Completion Review
+
+- ✅ Register for the conference happening tomorrow
+- ❌ Verify Brevo email end-to-end in ArwenHQ (carry forward)
+- ❌ Fix Team Chat ghost text bug in ArwenHQ (carry forward)
+
+---
+
+## 2026-03-13 (Friday) — Recommended for Today
+
+1. Verify Brevo email end-to-end in ArwenHQ
+2. Fix Team Chat ghost text bug in ArwenHQ
+3. Make Invoice Generation decision for ArwenHQ MVP scope
