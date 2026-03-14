@@ -28,41 +28,67 @@ Before generating the briefing, read the following files:
 
 Use the current system date/time as the date reference. Never fabricate a date.
 
-## Output Format
+---
 
-Produce a briefing in this exact structure:
+## Steps
 
-```
-## Yesterday's Review — [Previous Day, e.g. "Wednesday, March 12"]
+### Phase 1: Yesterday's Review (Completion Tracking)
 
-**Before we get to today — what did you actually get done yesterday?**
+**Before doing anything else, determine session type:**
 
-Use the AskUserQuestion tool with multiSelect: true to present yesterday's recommended tasks as real interactive checkboxes. Pull the exact task names and project context from the most recent "Recommended for Today" entry in `memory/daily_briefing_log.md`.
+1. Compute yesterday's date (e.g. if today is 2026-03-14, yesterday is 2026-03-13)
+2. Read `memory/daily_briefing_log.md` and look for an entry with yesterday's date key: `## YYYY-MM-DD`
+3. Apply this decision tree:
 
-Each option should include:
-- label: The task name (exact text from the log)
-- description: The role (Solopreneur/Bally's/Church) + project + why it mattered
+   **A. No entry for yesterday exists** → Skip Phase 1. Proceed to Phase 2.
 
-Example question config:
-  question: "Which of yesterday's recommended tasks did you complete?"
-  header: "Yesterday"
-  multiSelect: true
-  options:
-    - label: "Verify Brevo email end-to-end"
-      description: "Solopreneur / ArwenHQ — foundational blocker for invites and notifications"
-    - label: "Send status update to London team"
-      description: "Bally's — weekly team visibility"
-    - label: "Start exegesis for Sunday's passage"
-      description: "Church — sermon prep, Romans 8:1-11"
+   **B. Yesterday's entry exists, but has no `### Completion Review` block** → Run Phase 1:
+      - Extract the tasks listed under yesterday's `### Recommended` block
+      - Use `AskUserQuestion` with `multiSelect: true`:
+        - `question`: "Which of yesterday's recommended tasks did you complete?"
+        - `header`: "Yesterday"
+        - Each `option.label` = exact task name from the log
+        - Each `option.description` = role + project + one-line reason it mattered
+      - Wait for Arnold's response
+      - Add a `### Completion Review` block to yesterday's date entry in the log:
+        - ✅ for each selected task
+        - ❌ for each unselected task
+      - Any ❌ tasks carry forward into today's `### Flags & Blockers` as "Carried over from [date]"
 
-After Arnold responds:
-- Log ✅ for each selected item
-- Log ❌ for each unselected item
-- Append the completion review to `memory/daily_briefing_log.md`
-- Carry uncompleted items forward as follow-ups in today's briefing
+   **C. Yesterday's entry exists AND already has a `### Completion Review` block** → Skip Phase 1. Already done. Any ❌ tasks from that review still carry forward into today's Flags & Blockers.
 
 ---
 
+### Phase 2: Today's Briefing (Generation)
+
+4. Read all input context files listed in the Inputs section
+5. Identify today's date and day of the week
+6. Determine which day-specific sections apply (see Day-Specific Sections below)
+7. Scan `inbox/` for any uncaptured items
+8. Pull top 3 priorities — distribute across roles where possible:
+   - At least 1 solopreneur task (always relevant)
+   - 1 Bally's task if Arnold has flagged anything
+   - 1 church task if it's a sermon prep day (Thu–Sun, preaching week)
+   - If only solopreneur tasks exist, that's fine — don't force balance
+9. Check `context/finances.md` — surface any payments due today, tomorrow, or within 3 days
+10. Generate the briefing using the Output Format below
+
+---
+
+### Phase 3: Log Today's Recommended Tasks
+
+**This step is critical. Run it immediately after generating the briefing.**
+
+11. Look for an existing entry in `memory/daily_briefing_log.md` with today's date key: `## YYYY-MM-DD`
+    - **If no entry for today exists** → Append a new date entry using the log format below
+    - **If an entry for today already exists** → Update (replace) the `### Recommended` block within that entry with today's Top 3. Do not duplicate. Do not add a new date block.
+12. The 3 tasks in `### Today's Top 3 Priorities` ARE the recommended tasks — copy them verbatim (with role tags)
+
+---
+
+## Output Format
+
+```
 ## Daily Briefing — [Day, Month Date, Year]
 
 ### Today's Schedule
@@ -71,7 +97,7 @@ After Arnold responds:
 |------------|------|-------|
 | 8AM–1PM | Solopreneur | [Key tasks] |
 | 1PM–8PM | Bally's | [Key tasks/meetings] |
-| Evening | Church | [Sermon prep if applicable, or "—"] |
+| Evening | Church/Personal | [Sermon prep if applicable, or "—"] |
 
 ### Today's Top 3 Priorities
 1. [Most important task — tag role: Solopreneur/Bally's/Church]
@@ -88,12 +114,12 @@ After Arnold responds:
 *(Only show items Arnold has explicitly shared. If nothing: "No Bally's items flagged. Anything to add?")*
 
 ### Church
-- **Only show if Thursday–Sunday AND Arnold is preaching this week**
+*(Only show if Thursday–Sunday AND Arnold is preaching this week)*
 - Thursday: "Sermon prep begins — what passage/topic?" (if not started)
 - Friday: "Continue sermon development — outline and illustrations"
 - Saturday: "Finalize sermon draft"
 - Sunday: "Deliver day — quick review if needed"
-- **If not preaching this week or Mon–Wed:** Omit this section entirely
+*(If not preaching this week, or Mon–Wed: omit this section entirely)*
 
 ### Active Projects — Quick Status (Solopreneur)
 - **[Project Name]:** [One-line status / what's next]
@@ -106,113 +132,73 @@ After Arnold responds:
 
 ### Flags & Blockers
 - [Anything that needs attention or is at risk — across all roles]
-- [Carried-over items from yesterday]
+- [Carried-over items from yesterday marked with ❌]
 
 ### 💳 Bills & Payments
-- Read `context/finances.md` and compute based on today's date (system date)
-- **Show only relevant items** — due today, tomorrow, or within 3 days
-- Use these labels:
-  - 🔴 **Due today:** [Payment name] — ₱[amount if known]
-  - ⚠️ **Due tomorrow:** [Payment name] — ₱[amount if known]
-  - 📅 **Due in [N] days:** [Payment name] — ₱[amount if known]
-- **14th of month:** Show RCBC deposit and UB/Citibank debt payment as a sequence — "Deposit first, then pay". Also flag: Submit Phone/Medicine Expense (Bally's)
-- **10th of month:** Also flag: Submit Liquidation Expense (Bally's)
-- **AXA and domain renewal:** Flag 5 days in advance
-- **End-of-month items:** "Last day of month" = last calendar day of the current month
-- **Weekend rule:** If a due date falls on Saturday/Sunday, flag it the Friday before: "Due Monday — process today if needed"
-- If nothing is due within 3 days: omit this section entirely (no need to show the full schedule)
+*(Only include if something is due today, tomorrow, or within 3 days. Omit entirely otherwise.)*
+- 🔴 **Due today:** [Payment name] — ₱[amount if known]
+- ⚠️ **Due tomorrow:** [Payment name] — ₱[amount if known]
+- 📅 **Due in [N] days:** [Payment name] — ₱[amount if known]
 
-### Regubrief Maintenance
-- **Only include this section on Mondays.**
-- If today is Monday: "Regubrief day. Time to curate and send this week's GDPR enforcement actions."
-- All other days: omit this section entirely.
+Rules:
+- 14th of month: Show RCBC deposit + UB/Citibank as a linked sequence ("Deposit first, then pay"). Also flag: Submit Phone/Medicine Expense (Bally's)
+- 10th of month: Flag Submit Liquidation Expense (Bally's)
+- AXA and domain renewal: Flag 5 days in advance
+- Weekend rule: If due date falls on Saturday/Sunday, flag it the Friday before as "Due [Monday] — process today if needed"
 
-### LifeCity — Monday Tasks
-- **Only include this section on Mondays.**
-- If today is Monday: "Send Manny GCash — ₱700 (LifeCity)"
-- All other days: omit this section entirely.
-
-### LifeCity — Tuesday Task
-- **Only include this section on Tuesdays.**
-- If today is Tuesday: "Send Song List to Music Team for this Sunday's worship set."
-- All other days: omit this section entirely.
-
-### Blog — Shipped & Unfinished
-- **Only include this section on Wednesdays.**
-- If today is Wednesday: "Blog day. What did you build or decide this week that's worth writing about? Run `skills/blog_writing/SKILL.md` to draft a post."
-- All other days: omit this section entirely.
-
-### ChurchPromptDirectory Maintenance
-- **Only include this section on Fridays.**
-- If today is Friday: "ChurchPromptDirectory day. Write and publish a new article for church leaders."
-- All other days: omit this section entirely.
-
-### Bally's — Friday Evening
-- **Only include this section on Fridays.**
-- If today is Friday: "Work on Tempo tonight (Bally's)."
-- All other days: omit this section entirely.
-
-### Thursday Sermon Prep Kickoff
-- **Only include this section on Thursdays when Arnold is preaching.**
-- If today is Thursday AND Arnold is preaching: "Sermon prep day. Run `skills/sermon_prep/SKILL.md` or `workflows/sermon_prep.md` to start. What passage are you preaching from?"
-- All other days: omit this section entirely.
+### [Day-Specific Sections — see below]
 
 ### Focus Suggestion
 [One actionable suggestion based on goals, priorities, and which role needs the most attention today]
 
 ### ArwenHQ MVP — Daily Nudge
-- Read `memory/arwenhq_mvp_checklist.md` and surface 1–2 checklist items that haven't been touched recently.
+- Surface 1–2 open checklist items from `memory/arwenhq_mvp_checklist.md` that haven't been touched recently
 - Prompt: "What did you work on in ArwenHQ yesterday? Want to update the checklist?"
 ```
 
-## Steps
+---
 
-### Phase 1: Yesterday's Review (Completion Tracking)
+## Day-Specific Sections
 
-1. Read `memory/daily_briefing_log.md` — find the most recent **"Recommended for Today"** entry
-2. Extract each task's exact name, role tag, and associated project from the log
-3. Use **`AskUserQuestion` with `multiSelect: true`** to present the tasks as real interactive checkboxes:
-   - `question`: "Which of yesterday's recommended tasks did you complete?"
-   - `header`: "Yesterday"
-   - Each `option.label` = exact task name from the log
-   - Each `option.description` = role + project name + one-line reason it mattered
-4. Wait for Arnold's response — selected = done, unselected = not done
-5. Append a **Completion Review** block to `memory/daily_briefing_log.md`:
-   - ✅ for each selected task
-   - ❌ for each unselected task (note: "carry forward")
-6. Any ❌ tasks surface in today's briefing under **Flags & Blockers** as "Carried over from yesterday"
+Include only the section(s) that match today's day. Omit all others entirely.
+
+| Day | Section | Content |
+|-----|---------|---------|
+| Monday | **Regubrief Maintenance** | "Regubrief day. Time to curate and send this week's GDPR enforcement actions." |
+| Monday | **LifeCity — Monday Tasks** | "Send Manny GCash — ₱700 (LifeCity)" |
+| Tuesday | **LifeCity — Tuesday Task** | "Send Song List to Music Team for this Sunday's worship set." |
+| Wednesday | **Blog — Shipped & Unfinished** | "Blog day. What did you build or decide this week that's worth writing about? Run `skills/blog_writing/SKILL.md` to draft a post." |
+| Thursday (preaching week only) | **Sermon Prep Kickoff** | "Sermon prep day. Run `skills/sermon_prep/SKILL.md` or `workflows/sermon_prep.md` to start. What passage are you preaching from?" |
+| Friday | **ChurchPromptDirectory Maintenance** | "ChurchPromptDirectory day. Write and publish a new article for church leaders." |
+| Friday | **Bally's — Friday Evening** | "Work on Tempo tonight (Bally's)." |
 
 ---
 
-### Phase 2: Today's Briefing (Generation)
+## Memory: Log Format
 
-7. Read all input context files listed above
-8. Identify today's date from system time
-9. Determine today's day of the week — this affects:
-   - Which day-specific sections appear
-   - Whether sermon prep check is needed (Thu–Sun)
-10. Scan `inbox/` for any uncaptured items
-11. Pull top 3 priorities — **distribute across roles** where possible:
-    - At least 1 solopreneur task (always relevant)
-    - 1 Bally's task if Arnold has flagged anything
-    - 1 church task if it's a sermon prep day
-    - If only solopreneur tasks exist, that's fine — don't force balance
-12. Identify any flags or blockers from project context
-12a. **Check finances:** Read `context/finances.md`, compute today's date against all due dates, surface any items due today, tomorrow, or within 3 days in the `💳 Bills & Payments` section. Follow the weekend rule and the 14th-of-month sequence logic.
-13. Generate the briefing in the format above (starting after the Yesterday's Review section)
-14. Include the static reminder to run the Reddit Scanner in the Community Engagement section
-15. **Day-specific sections:**
-    - **Monday:** Include `Regubrief Maintenance` + `LifeCity — Monday Tasks` (Manny GCash ₱700). Otherwise omit.
-    - **Tuesday:** Include `LifeCity — Tuesday Task` (Song List to Music Team). Otherwise omit.
-    - **Wednesday:** Include `Blog — Shipped & Unfinished`. Otherwise omit.
-    - **Thursday (preaching week):** Include `Thursday Sermon Prep Kickoff`. Otherwise omit.
-    - **Friday:** Include `ChurchPromptDirectory Maintenance` + `Bally's — Friday Evening` (Tempo). Otherwise omit.
-16. **CRITICAL — Log today's top 3 immediately after writing them:**
-    - The 3 tasks in `### Today's Top 3 Priorities` ARE the recommended tasks
-    - Copy them **verbatim** (with role tags) into `memory/daily_briefing_log.md` as `## [Date] — Recommended for Today`
-    - Do this right after generating the briefing — never skip this step
-    - Tomorrow's Yesterday's Review will pull exactly these 3 task names
-17. Offer to drill into any section if Arnold asks
+The log file `memory/daily_briefing_log.md` uses one entry per date. This is strictly enforced — never create two entries for the same date.
+
+```markdown
+## YYYY-MM-DD (Weekday)
+
+### Recommended
+1. [Role] Task name
+2. [Role] Task name
+3. [Role] Task name
+
+### Completion Review
+- ✅ Task name [Role]
+- ❌ Task name [Role] — carry forward
+```
+
+**Rules:**
+- One `## YYYY-MM-DD` block per date — never duplicate
+- `### Recommended` is written at the end of Phase 3 and may be updated (replaced) if the brief is re-run the same day
+- `### Completion Review` is written once during Phase 1 of the next day's brief — never rewritten
+- If Phase 1 is skipped (no yesterday entry, or review already done), no new `### Completion Review` block is created
+- Append new date entries at the bottom of the file
+
+---
 
 ## Notes
 
@@ -221,32 +207,4 @@ After Arnold responds:
 - Do not invent tasks or priorities that aren't grounded in the context files
 - **Bally's items are opt-in only** — only show what Arnold has explicitly shared. Never assume or fabricate Bally's tasks.
 - **Church section is conditional** — only appears Thu–Sun on preaching weeks
-
-## Memory Tracking
-
-The daily briefing process maintains a log in `memory/daily_briefing_log.md`:
-
-```markdown
-# Daily Briefing Log
-
-## [Date] — Completion Review
-- ✅ Task 1 [Solopreneur] (completed)
-- ❌ Task 2 [Bally's] (not completed — carry forward)
-- ✅ Task 3 [Church] (completed)
-
-**Notes:** [Any context Arnold adds]
-
----
-
-## [Date] — Recommended for Today
-- [Solopreneur] Task A
-- [Bally's] Task B
-- [Church] Task C
-```
-
-This creates a feedback loop:
-1. **Yesterday:** Present what was recommended (across all roles)
-2. **Today:** Record what was done
-3. **Tomorrow:** Build on completed work and refocus
-
-Arnold's completion data is logged to understand patterns, dependencies, and realistic capacity across all three vocations.
+- **Same-day re-runs:** If the brief is run again on the same day, skip Phase 1 entirely (completion review can only happen once per day, the next morning). Update the `### Recommended` block in today's log entry with the latest Top 3.
