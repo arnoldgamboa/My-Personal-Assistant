@@ -76,15 +76,15 @@
 ---
 
 ## The Luxury Leads
-**Status:** In Progress (Redesign)
-**Goal:** Maintain existing website while building a full redesign.
-**Deadline:** ~May 2026 (2 months from March 2026)
+**Status:** Active (Redesign — Front Page Sprint)
+**Goal:** Redesign the website. Immediate milestone: front page done by end of March 2026.
+**Deadline:** Front page — 2026-03-31. Full redesign — ~May 2026.
 **Stakeholders:** Arnold
-**Next Action:** Proceed with the redesign implementation (Dokploy server is now up).
+**Next Action:** Start front page redesign work.
 **Time Allocation:** Minimum 5 hours/week
 **Notes:**
 - Dokploy server successfully created.
-- Not a top priority — steady, consistent weekly progress
+- Front page is the current sprint focus — prioritize this in daily briefings until done
 - Redesign is in progress alongside maintenance of the live site
 
 ---
