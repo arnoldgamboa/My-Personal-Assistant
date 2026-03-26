@@ -65,13 +65,15 @@ Use the current system date/time as the date reference. Never fabricate a date.
 5. Identify today's date and day of the week
 6. Determine which day-specific sections apply (see Day-Specific Sections below)
 7. Scan `inbox/` for any uncaptured items
-8. Pull top 3 priorities — distribute across roles where possible:
-   - At least 1 solopreneur task (always relevant)
-   - 1 Bally's task if Arnold has flagged anything
-   - 1 church task if it's a sermon prep day (Thu–Sun, preaching week)
-   - If only solopreneur tasks exist, that's fine — don't force balance
-9. Check `context/finances.md` — surface any payments due today, tomorrow, or within 3 days
-10. Generate the briefing using the Output Format below
+8. **Run Todoist scripts** (e.g., `node scripts/fetch_todoist.js` and `node scripts/fetch_tasks_by_project.js <id> --all`) to retrieve the full list of tasks.
+9. Distill Todoist tasks into three explicit lists: Past Due (Missed), Due Today, and Upcoming.
+10. Pull top 3 priorities — distribute across roles where possible:
+    - At least 1 solopreneur task (always relevant)
+    - 1 Bally's task if Arnold has flagged anything
+    - 1 church task if it's a sermon prep day (Thu–Sun, preaching week)
+    - If only solopreneur tasks exist, that's fine — don't force balance
+11. Check `context/finances.md` — surface any payments due today, tomorrow, or within 3 days
+12. Generate the briefing using the Output Format below
 
 ---
 
@@ -123,6 +125,14 @@ Use the current system date/time as the date reference. Never fabricate a date.
 
 ### Active Projects — Quick Status (Solopreneur)
 - **[Project Name]:** [One-line status / what's next]
+
+### ✅ Tasks (Todoist Source of Truth)
+#### 🔴 Past Due (Missed)
+- [List tasks from Todoist that are overdue]
+#### 🎯 Due Today
+- [List tasks from Todoist that are due today]
+#### 📅 Upcoming
+- [List key upcoming tasks from Todoist]
 
 ### Community Engagement
 - Reminder: Run `skills/reddit_scanning/SKILL.md` to find 5 high-value posts to engage with today

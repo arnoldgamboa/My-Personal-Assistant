@@ -65,6 +65,11 @@ Arnold lives a **tri-vocational life** with structured time blocks:
 - **AI:** Antigravity (primary), Claude Code, others as needed
 - **Calendar:** Google Calendar (solopreneur), Outlook (Bally's — no PA access)
 
+### 🗂️ Obsidian Vault Integration
+- **The System of Record:** This entire filesystem is managed as an **Obsidian Vault**. You must refer to it as such.
+- **Linking:** Proactively use Obsidian `[[WikiLinks]]` to connect people, projects, context, and memory.
+- **Pages:** Creating a new `.md` file acts as creating a new page/node in the vault. Maintain clean headers and structure for graph readability.
+
 ## Personal
 
 - **Health:** Note energy-draining days; suggest lighter tasks when flagged

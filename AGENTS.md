@@ -211,6 +211,7 @@ Skills are reusable, documented capabilities. Each skill lives in `skills/<skill
 | Reddit Scanning | `skills/reddit_scanning/` | Scanning 10 subreddits to find high-value engagement posts | Solopreneur |
 | Sermon Prep | `skills/sermon_prep/` | Sermon research, outline, and draft (Thu–Sun) | Church |
 | Social Media Marketing | `skills/social_media_marketing/` | Writing LinkedIn/Twitter content for Arnold's projects | Solopreneur |
+| Brain Dump | `skills/brain_dump/` | Raw thoughts, ideas, meeting notes, deferred decisions via trigger phrases | All |
 | Task Capture | `skills/task_capture/` | When capturing todos, ideas, or action items | All |
 | Weekly Schedule | `skills/weekly_schedule/` | Plan the week across all 3 roles | All |
 
