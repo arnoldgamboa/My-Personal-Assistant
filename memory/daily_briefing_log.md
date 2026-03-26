@@ -39,3 +39,12 @@
 **Notes:** Not preaching Sunday (Mar 15). Conference Saturday (Mar 14) — registered. Rosebowl next follow-up: Wed Mar 18 if no reply from Colin.
 
 ---
+
+## 2026-03-26 (Thursday)
+
+### Recommended
+1. [Solopreneur] Upload Objectway banners — Managers of Wealth (URGENT, carry-over)
+2. [Solopreneur] Verify Brevo email end-to-end in ArwenHQ (carry-over)
+3. [Church] Sermon prep kickoff — begin research, exegesis, initial outline
+
+---
