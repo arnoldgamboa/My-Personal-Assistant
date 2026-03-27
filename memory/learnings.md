@@ -21,14 +21,6 @@
 
 <!-- Append learnings chronologically -->
 
-### Evaluate moving online marketing skills to PA
-**Date:** 2026-03-09
-**Source:** Inbox / Idea
-**Insight:** Explore migrating online marketing skills from https://github.com/coreyhaines31/marketingskills to the PA. To be discussed next week.
-**Applies to:** General PA capabilities, marketing automations.
-
-### Claude Code Telegram Implementation
-**Date:** 2026-03-26
-**Source:** Brain dump / Idea
-**Insight:** Potentially run Claude Code's new Telegram implementation on the Linux machine as an interface for the PA.
-**Applies to:** PA Interface / Tooling
+> [!NOTE] 
+> All new and existing ideas have been moved to dedicated pages.
+> Please refer to [[inbox/Ideas_Dashboard]] for the complete list.

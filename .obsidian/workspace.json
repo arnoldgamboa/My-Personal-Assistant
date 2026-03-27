@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2026-03-26.md",
+                "file": "agents/reddit_scanner_agent.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-03-26"
+              "title": "reddit_scanner_agent"
             }
           }
         ]
@@ -185,16 +185,23 @@
   },
   "active": "fa2c688b75de5c84",
   "lastOpenFiles": [
-    "Untitled 1.canvas",
-    "CLAUDE.md",
-    "Untitled.base",
-    "2026-03-26.md",
     "Untitled.canvas",
-    "inbox/brain-dump.md",
-    "memory/learnings.md",
+    "Untitled 1.canvas",
+    "Untitled.base",
     "memory/daily_briefing_log.md",
-    "memory/arwenhq_mvp_checklist.md",
     "memory/decisions.md",
+    "memory/learnings.md",
+    "inbox/ideas/2026-03-09-online-marketing-skills.md",
+    "inbox/Ideas_Dashboard.md",
+    "inbox/Links_Dashboard.md",
+    "inbox/brain-dump.md",
+    "inbox/Brain_Dumps_Dashboard.md",
+    "inbox/ideas/2026-03-27-openclaw-upwork-side-lines.md",
+    "inbox/ideas/2026-03-26-claude-code-telegram.md",
+    "inbox/ideas",
+    "2026-03-26.md",
+    "CLAUDE.md",
+    "memory/arwenhq_mvp_checklist.md",
     "inbox/README.md",
     "skills/brain_dump/SKILL.md",
     "context/arwenhq_specs.md",

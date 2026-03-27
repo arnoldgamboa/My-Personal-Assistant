@@ -30,16 +30,18 @@ When any trigger phrase is detected:
 3. **Classify** each atom:
    - `task` — Something actionable
    - `idea` — Concept to explore
+   - `link` — A URL or resource to save
    - `decision` — Something decided OR to decide later
    - `note` — Reference info (person, project, context)
-   - `feeling/state` — Energy level, stress, emotional flags (e.g., "feeling swamped")
+   - `feeling/state` — Energy level, stress, emotional flags
+   - `long-form` — The entire raw text of a large dump
 4. **Route** each item:
-   - `task` → Add to Todoist via `node scripts/add_todoist.js` (preferred) OR flag for Arnold to add
-   - `idea` → Append to [[memory/learnings]] in the Obsidian vault
-   - `decision` → Append to [[memory/decisions]] in the Obsidian vault
-   - `note (person)` → Check [[context/people]] — update if person exists, or flag for new page
-   - `note (project)` → Update [[context/projects]] or relevant project page
-   - `feeling/state` → Note in output only; do not write to vault unless Arnold asks
+   - `task` → Add to Todoist via `node scripts/add_todoist.js`
+   - `idea` → Create `inbox/ideas/YYYY-MM-DD-[slug].md` & append link to [[inbox/Ideas_Dashboard]]
+   - `link` → Create `inbox/links/YYYY-MM-DD-[slug].md` & append link to [[inbox/Links_Dashboard]]
+   - `long-form dump` → Create `inbox/dumps/YYYY-MM-DD-[slug].md` & append link to [[inbox/Brain_Dumps_Dashboard]]
+   - `decision` → Append to [[memory/decisions]]
+   - `note (person/project)` → Update [[context/people]] or [[context/projects]]
    - **Unclear items** → Park in [[inbox/brain-dump]] with date stamp
 
 ---
@@ -67,17 +69,23 @@ After processing, always respond with this summary:
 🔲 Tasks (→ Todoist or Projects)
 - [ ] [task] [→ Project: X if known]
 
-💡 Ideas (→ [[memory/learnings]])
-- [idea]
+💡 Ideas (→ [[inbox/Ideas_Dashboard]])
+- Created: [[inbox/ideas/[slug]\|[Title]]]
 
-🔷 Decisions / Decide Later (→ [[memory/decisions]])
+🔗 Links (→ [[inbox/Links_Dashboard]])
+- Created: [[inbox/links/[slug]\|[Title]]]
+
+🧠 Full Dumps (→ [[inbox/Brain_Dumps_Dashboard]])
+- Created: [[inbox/dumps/[slug]\|[Title]]]
+
+🔷 Decisions (→ [[memory/decisions]])
 - [decision or deferred topic]
 
 📝 Notes (→ [[context/people]] / [[context/projects]])
 - [note with context]
 
-🗂️ Parked in [[inbox/brain-dump]]
-- [items that need more context before routing]
+🗂️ Parked (Unclear)
+- [items in [[inbox/brain-dump]]]
 
 ⚡ State / Energy (noted, not filed)
 - [any feelings or energy signals]
@@ -91,11 +99,12 @@ After processing, always respond with this summary:
 2. Parse content into atoms
 3. Classify each atom
 4. Route to correct vault file:
-   - Append to `memory/learnings.md` for ideas
-   - Append to `memory/decisions.md` for decisions
-   - Update `context/projects.md` or `context/people.md` for notes
-   - Add to Todoist for tasks (via `add_todoist.js`)
-   - Park in `inbox/brain-dump.md` for unclear items
+   - **Ideas:** Create `inbox/ideas/YYYY-MM-DD-[slug].md` and update `Ideas_Dashboard.md`
+   - **Links:** Create `inbox/links/YYYY-MM-DD-[slug].md` and update `Links_Dashboard.md`
+   - **Long-form Dumps:** Create `inbox/dumps/YYYY-MM-DD-[slug].md` and update `Brain_Dumps_Dashboard.md`
+   - **Decisions:** Append to `memory/decisions.md`
+   - **Tasks:** Add to Todoist
+   - **Unclear:** Park in `inbox/brain-dump.md`
 5. Output the capture summary
 
 ---
