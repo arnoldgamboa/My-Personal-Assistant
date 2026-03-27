@@ -7,6 +7,7 @@
 
 ## Recent Ideas
 
+- [[inbox/ideas/2026-03-27-openclaw-ads|OpenClaw Ads Exploration]]
 - [[inbox/ideas/2026-03-27-openclaw-upwork-side-lines|OpenClaw Upwork Side-lines]]
 - [[inbox/ideas/2026-03-26-claude-code-telegram|Claude Code Telegram Implementation]]
 - [[inbox/ideas/2026-03-09-online-marketing-skills|Evaluate moving online marketing skills to PA]]
