@@ -42,6 +42,11 @@
 - Managing his time around the 1PM–8PM block
 - Preparing talking points for meetings he describes
 
+## Knowledge Base
+
+- Index: `context/ballys_knowledge_base.md`
+- Interview guide: `context/ballys_interview_engineering_lead.md`
+
 ## Recurring Meetings
 
 *(Arnold to add as needed — day, time, participants, purpose)*

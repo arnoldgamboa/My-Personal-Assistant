@@ -21,7 +21,7 @@ Payments Arnold executes manually — the PA only reminds, never transacts.
 
 | # | Payment | Amount | Due Day | Via | Notes |
 |---|---------|--------|---------|-----|-------|
-| W1 | Send Manny GCash | ₱700 | Every Monday | GCash | LifeCity church — also in `context/lifecity_church.md` |
+| W1 | Send Manny GCash | ₱700 | Every Tuesday | GCash | LifeCity church — also in `context/lifecity_church.md` |
 
 ---
 
