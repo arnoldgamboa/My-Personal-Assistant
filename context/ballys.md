@@ -67,8 +67,8 @@
 
 | Role | Candidate | Date Interviewed | Impression | Status |
 |------|-----------|-----------------|------------|--------|
-| Software Engineer | Kevin Basence | 2026-03-13 | Positive — recommend advancing | Considering |
-| Software Engineer | Brylle Japhet Duka | 2026-03-27 | Seeking offer approval | Offer Pending |
+| Software Engineer | Kevin Basence | 2026-03-13 | Positive — recommend advancing | Rejected |
+| Software Engineer | Brylle Japhet Duka | 2026-03-27 | Seeking offer approval | Offer to be extended Monday |
 
 ### Interview Notes
 

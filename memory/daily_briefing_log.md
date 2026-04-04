@@ -60,3 +60,12 @@
 - ✅ Bukidtek: Server creation [Solopreneur]
 - ✅ Finalize sermon draft, practice, review flow [Church]
 - ❌ Update budget spreadsheet [Personal] — carry forward
+
+---
+
+## 2026-04-02 (Thursday)
+
+### Recommended
+1. [Solopreneur] Upload Objectway banners — Managers of Wealth (URGENT)
+2. [Solopreneur] Start The Luxury Leads front page redesign sprint
+3. [Church] Sermon prep kickoff — begin research, exegesis, and initial outline

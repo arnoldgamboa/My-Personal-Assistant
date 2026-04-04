@@ -31,13 +31,14 @@ Payments Arnold executes manually — the PA only reminds, never transacts.
 |---|---------|--------|----------|-----|-------|
 | 1 | Send money to parents | — | Last day of month | — | Family support |
 | 2 | Pay Meralco (electricity) | — | 1st of month | — | |
-| 3 | Send LifeCity gift | — | 1st of month | — | Church giving |
-| 4 | Pay Salmon card | — | 7th of month | — | Credit card |
-| 5 | Deposit to RCBC | ₱53,000 | 14th of month | RCBC | Covers debt payments below |
-| 6 | Debt: UB/Citibank *2513 | ₱9,559.21 | 14th of month | RCBC app | Pay *after* RCBC deposit |
-| 7 | Pay Converge (internet) | — | 17th of month | — | |
-| 8 | Debt: RCBC *2003 | ₱16,712.30 | 30th of month | Maribank app | |
-| 9 | Send money to parents | — | Last day of month | — | Same as #1 |
+| 3 | Pay Atome | — | 2nd of month | — | Billing deadline |
+| 4 | Send LifeCity gift | — | 1st of month | — | Church giving |
+| 5 | Pay Salmon card | — | 7th of month | — | Credit card |
+| 6 | Deposit to RCBC | ₱53,000 | 14th of month | RCBC | Covers debt payments below |
+| 7 | Debt: UB/Citibank *2513 | ₱9,559.21 | 14th of month | RCBC app | Pay *after* RCBC deposit |
+| 8 | Pay Converge (internet) | — | 17th of month | — | |
+| 9 | Debt: RCBC *2003 | ₱16,712.30 | 30th of month | Maribank app | |
+| 10 | Send money to parents | — | Last day of month | — | Same as #1 |
 
 ---
 
@@ -45,8 +46,8 @@ Payments Arnold executes manually — the PA only reminds, never transacts.
 
 | # | Payment | Amount | Due Date | Frequency | Notes |
 |---|---------|--------|----------|-----------|-------|
-| 10 | AXA Life insurance | — | May 1, 2026 | Every 6 months | Next: May 1, 2026 → Nov 1, 2026 |
-| 11 | gamboa.ph domain renewal | — | March 25 | Annual | Next: March 25, 2027 |
+| 11 | AXA Life insurance | — | May 1, 2026 | Every 6 months | Next: May 1, 2026 → Nov 1, 2026 |
+| 12 | gamboa.ph domain renewal | — | March 25 | Annual | Next: March 25, 2027 |
 
 ---
 
@@ -78,4 +79,4 @@ The briefing should surface this as a sequence, not two separate items.
 
 ---
 
-*Last updated: March 13, 2026*
+*Last updated: April 2, 2026*

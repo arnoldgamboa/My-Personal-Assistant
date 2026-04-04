@@ -49,6 +49,7 @@ Arnold lives a **tri-vocational life** with structured time blocks:
 - **Priority system:** Use Urgent/Important matrix (see AGENTS.md)
 - **Status updates:** Keep project statuses current after every meaningful session
 - **Done means done:** Only mark tasks complete when output is real and usable
+- **Task capture default:** When Arnold says "task" or "todo", log it to Todoist by default unless he explicitly says otherwise
 
 ## Email & Communication
 

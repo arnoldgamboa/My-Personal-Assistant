@@ -91,31 +91,30 @@ Use the current system date/time as the date reference. Never fabricate a date.
 ## Output Format
 
 ```
-## Daily Briefing — [Day, Month Date, Year]
+**Daily Briefing — [Day, Month Date, Year]**
 
-### Today's Schedule
+Formatting rules for Telegram:
+- Keep all current sections and content coverage
+- Do not use tables
+- Use short headers and flat bullets only
+- Keep each bullet to 1-2 lines max
+- Put a blank line between sections for readability
 
-| Time Block | Role | Focus |
-|------------|------|-------|
-| 8AM–1PM | Solopreneur | [Key tasks] |
-| 1PM–8PM | Bally's | [Key tasks/meetings] |
-| Evening | Church/Personal | [Sermon prep if applicable, or "—"] |
-
-### Today's Top 3 Priorities
+**Today's Top 3 Priorities**
 1. [Most important task — tag role: Solopreneur/Bally's/Church]
 2. [Second priority — tag role]
 3. [Third priority — tag role]
 
-### Solopreneur Block (8AM–1PM)
+**Solopreneur Block (8AM–1PM)**
 - **[Project Name]:** [What to work on today]
 - **[Project Name]:** [What to work on today]
 
-### Bally's Block (1PM–8PM)
+**Bally's Block (1PM–8PM)**
 - [Meeting at X time] or "No meetings flagged — check Outlook"
 - [Task reminder] or "No tasks flagged — steady day"
 *(Only show items Arnold has explicitly shared. If nothing: "No Bally's items flagged. Anything to add?")*
 
-### Church
+**Church**
 *(Only show if Thursday–Sunday AND Arnold is preaching this week)*
 - Thursday: "Sermon prep begins — what passage/topic?" (if not started)
 - Friday: "Continue sermon development — outline and illustrations"
@@ -123,28 +122,31 @@ Use the current system date/time as the date reference. Never fabricate a date.
 - Sunday: "Deliver day — quick review if needed"
 *(If not preaching this week, or Mon–Wed: omit this section entirely)*
 
-### Active Projects — Quick Status (Solopreneur)
+**Active Projects — Quick Status (Solopreneur)**
 - **[Project Name]:** [One-line status / what's next]
 
-### ✅ Tasks (Todoist Source of Truth)
-#### 🔴 Past Due (Missed)
+**✅ Tasks (Todoist Source of Truth)**
+
+**🔴 Past Due (Missed)**
 - [List tasks from Todoist that are overdue]
-#### 🎯 Due Today
+
+**🎯 Due Today**
 - [List tasks from Todoist that are due today]
-#### 📅 Upcoming
+
+**📅 Upcoming**
 - [List key upcoming tasks from Todoist]
 
-### Community Engagement
+**Community Engagement**
 - Reminder: Run `skills/reddit_scanning/SKILL.md` to find 5 high-value posts to engage with today
 
-### Inbox
+**Inbox**
 - [N items pending capture/triage] or "(Inbox clear)"
 
-### Flags & Blockers
+**Flags & Blockers**
 - [Anything that needs attention or is at risk — across all roles]
 - [Carried-over items from yesterday marked with ❌]
 
-### 💳 Bills & Payments
+**💳 Bills & Payments**
 *(Only include if something is due today, tomorrow, or within 3 days. Omit entirely otherwise.)*
 - 🔴 **Due today:** [Payment name] — ₱[amount if known]
 - ⚠️ **Due tomorrow:** [Payment name] — ₱[amount if known]
@@ -156,12 +158,12 @@ Rules:
 - AXA and domain renewal: Flag 5 days in advance
 - Weekend rule: If due date falls on Saturday/Sunday, flag it the Friday before as "Due [Monday] — process today if needed"
 
-### [Day-Specific Sections — see below]
+**[Day-Specific Sections — see below]**
 
-### Focus Suggestion
+**Focus Suggestion**
 [One actionable suggestion based on goals, priorities, and which role needs the most attention today]
 
-### ArwenHQ MVP — Daily Nudge
+**ArwenHQ MVP — Daily Nudge**
 - Surface 1–2 open checklist items from `memory/arwenhq_mvp_checklist.md` that haven't been touched recently
 - Prompt: "What did you work on in ArwenHQ yesterday? Want to update the checklist?"
 ```

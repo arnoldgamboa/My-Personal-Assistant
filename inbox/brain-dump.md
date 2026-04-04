@@ -25,3 +25,8 @@ When a brain dump contains items that can't be immediately routed (unclear proje
 ## Pending Items
 
 <!-- New brain dump entries are appended below this line -->
+
+### 2026-04-03 — [Type: Raw Thoughts]
+- Got the Zed credit card today.
+- Approved for a ₱15,000 credit line.
+- Not much, but it feels like a good start for rebuilding/revealing my credit score.

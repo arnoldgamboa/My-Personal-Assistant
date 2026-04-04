@@ -22,6 +22,7 @@
 ### Weekly Overrides
 
 - **Sunday, March 15, 2026:** Arnold is **not preaching**. Remove Thursday-Sunday sermon prep items for this week.
+- **Sunday, April 5, 2026:** Arnold **is preaching**. Week 1 of the `The Gospel of John` series. This Sunday is also Easter Sunday.
 
 ## Sermon Preparation Schedule
 
@@ -44,11 +45,9 @@ Prep is **intermittent** throughout these days — woven between solopreneur and
 
 ### Current Series
 
-*(Arnold to update)*
-
 | Week | Date | Topic/Title | Preacher | Status |
 |------|------|-------------|----------|--------|
-| | | | | |
+| 1 | 2026-04-05 | The Gospel of John — Easter Sunday kickoff | Arnold | Preaching |
 
 ### Upcoming Series Ideas
 

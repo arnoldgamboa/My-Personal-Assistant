@@ -2,9 +2,10 @@
 
 const fs = require("fs");
 const path = require("path");
+const https = require("https");
 
 const ROOT = path.resolve(__dirname, "..");
-const WORKFLOWS = new Set(["morning_routine", "weekly_review", "task_capture"]);
+const WORKFLOWS = new Set(["morning_routine", "weekly_review", "task_capture", "reminder_check"]);
 
 function fail(message) {
   console.error(`Error: ${message}`);
@@ -13,6 +14,137 @@ function fail(message) {
 
 function readFile(relativePath) {
   return fs.readFileSync(path.join(ROOT, relativePath), "utf8");
+}
+
+function loadWorkspaceEnv() {
+  const envPath = path.join(ROOT, ".env");
+  if (!fs.existsSync(envPath)) return;
+  const envContent = fs.readFileSync(envPath, "utf8");
+  envContent.split("\n").forEach((line) => {
+    const match = line.match(/^\s*([\w.-]+)\s*=\s*(.*)?\s*$/);
+    if (!match) return;
+    process.env[match[1]] = match[2];
+  });
+}
+
+function fetchJson(hostname, reqPath, headers = {}) {
+  return new Promise((resolve, reject) => {
+    const req = https.request(
+      {
+        hostname,
+        path: reqPath,
+        method: "GET",
+        headers,
+      },
+      (res) => {
+        let data = "";
+        res.on("data", (chunk) => {
+          data += chunk;
+        });
+        res.on("end", () => {
+          if (res.statusCode !== 200) {
+            reject(new Error(`HTTP ${res.statusCode}: ${data}`));
+            return;
+          }
+          try {
+            resolve(JSON.parse(data));
+          } catch (error) {
+            reject(error);
+          }
+        });
+      }
+    );
+    req.on("error", reject);
+    req.end();
+  });
+}
+
+function compareTodoistTasks(a, b) {
+  const priorityDelta = (b.priority || 1) - (a.priority || 1);
+  if (priorityDelta !== 0) return priorityDelta;
+  const dueA = a.due?.date || "9999-12-31";
+  const dueB = b.due?.date || "9999-12-31";
+  return dueA.localeCompare(dueB);
+}
+
+function normalizeTodoistTasks(payload) {
+  const tasks = payload.results || payload.tasks || payload;
+  return Array.isArray(tasks) ? tasks : [];
+}
+
+function categorizeTodoistTasks(tasks, runDate) {
+  const overdue = [];
+  const today = [];
+  const upcoming = [];
+
+  for (const task of tasks) {
+    const dueDate = task.due?.date;
+    if (!dueDate) {
+      upcoming.push(task);
+      continue;
+    }
+    if (dueDate < runDate) overdue.push(task);
+    else if (dueDate === runDate) today.push(task);
+    else upcoming.push(task);
+  }
+
+  overdue.sort(compareTodoistTasks);
+  today.sort(compareTodoistTasks);
+  upcoming.sort(compareTodoistTasks);
+
+  return { overdue, today, upcoming };
+}
+
+function dueWithinDays(task, runDate, maxDays) {
+  const dueDate = task.due?.date;
+  if (!dueDate) return false;
+  const delta = daysBetween(runDate, dueDate);
+  return delta > 0 && delta <= maxDays;
+}
+
+async function fetchTodoistSnapshot(runDate) {
+  loadWorkspaceEnv();
+  const token = process.env.TODOIST_API_TOKEN;
+  if (!token) {
+    return { topPriorities: [], overdue: [], today: [], upcoming: [], error: "TODOIST_API_TOKEN missing" };
+  }
+
+  try {
+    const [todayPayload, upcomingPayload] = await Promise.all([
+      fetchJson("api.todoist.com", "/api/v1/tasks?filter=today%20|%20overdue", {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      }),
+      fetchJson("api.todoist.com", "/api/v1/tasks?filter=next%207%20days", {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      }),
+    ]);
+
+    const primaryTasks = normalizeTodoistTasks(todayPayload);
+    const futureTasks = normalizeTodoistTasks(upcomingPayload);
+    const categorizedPrimary = categorizeTodoistTasks(primaryTasks, runDate);
+    const categorizedFuture = categorizeTodoistTasks(
+      futureTasks.filter((task) => (task.due?.date || "") > runDate),
+      runDate
+    );
+
+    return {
+      topPriorities: primaryTasks.sort(compareTodoistTasks).slice(0, 3).map((task) => task.content),
+      overdue: categorizedPrimary.overdue.map((task) => task.content),
+      today: categorizedPrimary.today.map((task) => task.content),
+      upcoming: categorizedFuture.upcoming
+        .filter((task) => dueWithinDays(task, runDate, 2))
+        .slice(0, 10)
+        .map((task) => ({
+        content: task.content,
+        due_date: task.due?.date || "",
+      })),
+      error: null,
+    };
+  } catch (error) {
+    return { topPriorities: [], overdue: [], today: [], upcoming: [], error: String(error.message || error) };
+  }
 }
 
 function writeFile(relativePath, content, options, touchedFiles) {
@@ -137,6 +269,7 @@ function parseMonthlyRule(dueDateRaw, runDate) {
 
 function parseAbsoluteRule(dueDateRaw, runDate) {
   const year = asUtcDate(runDate).getUTCFullYear();
+  const iso = dueDateRaw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
   const withYear = dueDateRaw.match(/^([A-Za-z]+)\s+(\d{1,2}),\s*(\d{4})$/);
   const noYear = dueDateRaw.match(/^([A-Za-z]+)\s+(\d{1,2})$/);
   const months = {
@@ -154,6 +287,10 @@ function parseAbsoluteRule(dueDateRaw, runDate) {
     december: 11,
   };
 
+  if (iso) {
+    return `${iso[1]}-${iso[2]}-${iso[3]}`;
+  }
+
   if (withYear) {
     const month = months[withYear[1].toLowerCase()];
     if (month === undefined) return null;
@@ -170,6 +307,60 @@ function parseAbsoluteRule(dueDateRaw, runDate) {
   }
 
   return null;
+}
+
+function parseReminderDueDate(value, runDate) {
+  if (!value) return null;
+  return parseAbsoluteRule(value, runDate) || parseMonthlyRule(value, runDate);
+}
+
+function parseReminders(remindersText, runDate, windowDays = 2) {
+  const lines = remindersText.split("\n");
+  const reminders = [];
+  let current = null;
+
+  for (const line of lines) {
+    const titleMatch = line.match(/^###\s+(.+)$/);
+    if (titleMatch) {
+      if (current) reminders.push(current);
+      current = { title: titleMatch[1].trim(), captured_at: "", due_by: "", reminder: "" };
+      continue;
+    }
+    if (!current) continue;
+
+    const capturedMatch = line.match(/^\*\*Date captured:\*\*\s+(.+)$/);
+    if (capturedMatch) {
+      current.captured_at = capturedMatch[1].trim();
+      continue;
+    }
+
+    const dueMatch = line.match(/^\*\*Due by:\*\*\s+(.+)$/);
+    if (dueMatch) {
+      current.due_by = dueMatch[1].trim();
+      continue;
+    }
+
+    const reminderMatch = line.match(/^\*\*Reminder:\*\*\s+(.+)$/);
+    if (reminderMatch) {
+      current.reminder = reminderMatch[1].trim();
+    }
+  }
+
+  if (current) reminders.push(current);
+
+  return reminders
+    .map((item) => {
+      const dueDate = parseReminderDueDate(item.due_by, runDate);
+      if (!dueDate) return null;
+      return {
+        ...item,
+        due_date: dueDate,
+        due_in_days: daysBetween(runDate, dueDate),
+      };
+    })
+    .filter(Boolean)
+    .filter((item) => item.due_in_days <= windowDays)
+    .sort((a, b) => a.due_in_days - b.due_in_days);
 }
 
 function parseFinances(financesText, ballysText, runDate) {
@@ -406,11 +597,18 @@ function isPreachingWeek(churchText, runDate) {
   return !regex.test(churchText);
 }
 
-function defaultTop3(carryovers, nextActions, preaching, runDate) {
+function defaultTop3(carryovers, nextActions, preaching, runDate, todoistTopPriorities = []) {
   const top = [];
+
+  for (const task of todoistTopPriorities) {
+    if (top.length >= 3) break;
+    top.push(`[Todoist] ${task}`);
+  }
+
   for (const task of carryovers) {
     if (top.length >= 2) break;
-    top.push(`[Carryover] ${task}`);
+    const value = `[Carryover] ${task}`;
+    if (!top.includes(value)) top.push(value);
   }
 
   for (const action of nextActions) {
@@ -592,7 +790,7 @@ function writeStatusArtifact(runDate, workflow, success, touchedFiles, blockers,
   );
 }
 
-function runMorningRoutine(runDate, options, touchedFiles) {
+async function runMorningRoutine(runDate, options, touchedFiles) {
   const required = [
     "context/projects.md",
     "context/goals.md",
@@ -613,11 +811,12 @@ function runMorningRoutine(runDate, options, touchedFiles) {
   const finances = readFile("context/finances.md");
   const dailyLog = readFile("memory/daily_briefing_log.md");
   const inbox = readFile("inbox/README.md");
+  const todoist = await fetchTodoistSnapshot(runDate);
 
   const preaching = isPreachingWeek(church, runDate);
   const carryovers = extractCarryovers(dailyLog).slice(0, 5);
   const nextActions = extractNextActions(projects);
-  const top3 = defaultTop3(carryovers, nextActions, preaching, runDate);
+  const top3 = defaultTop3(carryovers, nextActions, preaching, runDate, todoist.topPriorities);
   const dueItems = parseFinances(finances, ballys, runDate);
   const staleReminders = detectStaleReminders(inbox, dailyLog);
   const day = dayName(runDate);
@@ -628,6 +827,13 @@ function runMorningRoutine(runDate, options, touchedFiles) {
     date_label: longDate(runDate),
     workflow: "morning_routine",
     top_3: top3,
+    todoist: {
+      top_priorities: todoist.topPriorities,
+      overdue: todoist.overdue,
+      due_today: todoist.today,
+      upcoming: todoist.upcoming,
+      error: todoist.error,
+    },
     carryovers: carryovers.map((task) => ({ task })),
     due_items: dueItems,
     stale_reminders: staleReminders,
@@ -755,6 +961,46 @@ function runWeeklyReview(runDate, options, touchedFiles) {
         date: runDate,
         workflow: "weekly_review",
         weekly_snapshot: result,
+      },
+      null,
+      2
+    )}\n`,
+    options,
+    touchedFiles
+  );
+
+  return result;
+}
+
+function runReminderCheck(runDate, options, touchedFiles) {
+  const required = ["memory/reminders.md"];
+  ensureRequiredFiles(required);
+
+  const reminders = readFile("memory/reminders.md");
+  const activeReminders = parseReminders(reminders, runDate, 2);
+
+  const result = {
+    schema_version: "1.0.0",
+    workflow: "reminder_check",
+    date: runDate,
+    date_label: longDate(runDate),
+    reminders_due_soon: activeReminders,
+  };
+
+  writeFile(
+    `memory/logs/runs/reminder_check-${runDate}.json`,
+    `${JSON.stringify(result, null, 2)}\n`,
+    options,
+    touchedFiles
+  );
+
+  writeFile(
+    "memory/state/operating_state.json",
+    `${JSON.stringify(
+      {
+        date: runDate,
+        workflow: "reminder_check",
+        reminders_due_soon: activeReminders,
       },
       null,
       2
@@ -927,7 +1173,7 @@ function printResult(result) {
   console.log(JSON.stringify(result, null, 2));
 }
 
-function main() {
+async function main() {
   const parsed = parseArgs(process.argv.slice(2));
   const workflow = parsed.workflow;
   const flags = parsed.flags;
@@ -943,11 +1189,13 @@ function main() {
   try {
     let result;
     if (workflow === "morning_routine") {
-      result = runMorningRoutine(runDate, options, touchedFiles);
+      result = await runMorningRoutine(runDate, options, touchedFiles);
     } else if (workflow === "weekly_review") {
       result = runWeeklyReview(runDate, options, touchedFiles);
     } else if (workflow === "task_capture") {
       result = runTaskCapture(runDate, flags, options, touchedFiles);
+    } else if (workflow === "reminder_check") {
+      result = runReminderCheck(runDate, options, touchedFiles);
     } else {
       fail(`Unsupported workflow: ${workflow}`);
       return;
