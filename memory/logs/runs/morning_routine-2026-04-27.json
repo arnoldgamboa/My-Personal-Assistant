@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0.0",
+  "date": "2026-04-27",
+  "date_label": "Monday, April 27, 2026",
+  "workflow": "morning_routine",
+  "top_3": [
+    "[Todoist] Check Gracelene's message re video",
+    "[Todoist] Work on Tempo",
+    "[Todoist] Start working and checking the BukidTek email and task"
+  ],
+  "todoist": {
+    "top_priorities": [
+      "Check Gracelene's message re video",
+      "Work on Tempo",
+      "Start working and checking the BukidTek email and task"
+    ],
+    "overdue": [
+      "Check Gracelene's message re video",
+      "Work on Tempo",
+      "Update budget spreadsheet"
+    ],
+    "due_today": [
+      "Start working and checking the BukidTek email and task"
+    ],
+    "upcoming": [
+      {
+        "content": "Send Song List to Music Team",
+        "due_date": "2026-04-28"
+      },
+      {
+        "content": "Publish Shipped & Unfinished blog post (weekly Wednesday)",
+        "due_date": "2026-04-29"
+      }
+    ],
+    "error": null
+  },
+  "carryovers": [
+    {
+      "task": "Check Gracelene's message re video"
+    },
+    {
+      "task": "Work on Tempo"
+    },
+    {
+      "task": "Update budget spreadsheet"
+    }
+  ],
+  "due_items": [
+    {
+      "label": "due_in_days",
+      "payment": "Send money to parents",
+      "amount": "",
+      "due_date": "2026-04-30",
+      "due_in_days": 3,
+      "source": "finances",
+      "weekend_note": ""
+    },
+    {
+      "label": "due_in_days",
+      "payment": "Debt: RCBC *2003",
+      "amount": "₱16,712.30",
+      "due_date": "2026-04-30",
+      "due_in_days": 3,
+      "source": "finances",
+      "weekend_note": ""
+    },
+    {
+      "label": "due_in_days",
+      "payment": "Send money to parents",
+      "amount": "",
+      "due_date": "2026-04-30",
+      "due_in_days": 3,
+      "source": "finances",
+      "weekend_note": ""
+    }
+  ],
+  "stale_reminders": [],
+  "preaching": {
+    "upcoming_sunday": "2026-05-03",
+    "is_preaching": true
+  },
+  "sections": {
+    "sermon_window": false,
+    "preaching": true,
+    "sermon_items_included": false,
+    "friday_items_expected": false,
+    "friday_items_included": false
+  },
+  "validation": {
+    "daily_log_top3_written": true
+  }
+}

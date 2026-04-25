@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0.0",
+  "date": "2026-04-25",
+  "date_label": "Saturday, April 25, 2026",
+  "workflow": "morning_routine",
+  "top_3": [
+    "[Todoist] Check Gracelene's message re video",
+    "[Todoist] Work on Tempo",
+    "[Todoist] Update budget spreadsheet"
+  ],
+  "todoist": {
+    "top_priorities": [
+      "Check Gracelene's message re video",
+      "Work on Tempo",
+      "Update budget spreadsheet"
+    ],
+    "overdue": [
+      "Check Gracelene's message re video",
+      "Update budget spreadsheet"
+    ],
+    "due_today": [
+      "Work on Tempo"
+    ],
+    "upcoming": [
+      {
+        "content": "Start working and checking the BukidTek email and task",
+        "due_date": "2026-04-27"
+      }
+    ],
+    "error": null
+  },
+  "carryovers": [
+    {
+      "task": "Check Gracelene's message re video"
+    },
+    {
+      "task": "Update budget spreadsheet"
+    }
+  ],
+  "due_items": [],
+  "stale_reminders": [],
+  "preaching": {
+    "upcoming_sunday": "2026-04-26",
+    "is_preaching": false
+  },
+  "sections": {
+    "sermon_window": true,
+    "preaching": false,
+    "sermon_items_included": false,
+    "friday_items_expected": false,
+    "friday_items_included": false
+  },
+  "validation": {
+    "daily_log_top3_written": true
+  }
+}

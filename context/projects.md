@@ -16,6 +16,16 @@
 
 ## Active Projects
 
+## PA System — Personal Assistant
+**Status:** Active (Improvement & Maintenance)
+**Goal:** Continuously improve Arnold's Personal Assistant system for better context tracking, automation, and reliability.
+**Stakeholders:** Arnold
+**Next Action:** Add prayer lists to the PA system (populate memory/prayer_lists.md with structured prayer content)
+**Notes:**
+- Focus on deterministic, non-interactive workflows
+- Keep Todoist as source of truth for tasks
+- Maintain Obsidian vault as system of record for context and memory
+
 ## ArwenHQ
 **Status:** In Progress / Pre-Launch (MVP Target: Month 4)
 **Goal:** Build an open-source, local-first project management platform with per-project pricing (the "Open Source Alternative to Basecamp").
@@ -33,6 +43,7 @@
 **Notes:**
 - PRD saved in `resources/references/ArwenHQ_PRD.md`
 - Full MVP checklist: `memory/arwenhq_mvp_checklist.md`
+- Keep context files updated as features and specs change so the PA can brief accurately.
 - Key differentiators: Per-project pricing, unlimited users, local-first speed (IndexedDB + WebSockets), AGPL v3 license.
 - Marketing strategy: Open-source distribution via GitHub Trending, Hacker News, Reddit (r/selfhosted), Lemmy.
 - **Recent Progress:** Implemented "comment mentions @" feature.
@@ -54,15 +65,29 @@
 
 ---
 
+## Bukidtek
+**Status:** Active (Pending next steps)
+**Goal:** Deliver current Bukidtek implementation work and coordinate next steps with Noah.
+**Deadline:** TBD
+**Stakeholders:** Arnold, Noah
+**Next Action:** Coordinate next steps with Noah after completed meeting.
+**Recurring check-in:** Thursday 3:00 PM — follow up weekly on project status
+**Notes:**
+- Server creation: ✅ Completed
+- Thursday 3:00 PM meeting with Noah: ✅ Completed
+- Weekly check-in: Every Thursday to track progress and next deliverables
+
+---
+
 
 ---
 
 ## Rosebowl Website Redesign
-**Status:** Proposal Sent (Waiting for Response)
+**Status:** On Hold (Waiting on End Client)
 **Goal:** Full redesign of the Rosebowl website — migrate backend from Strapi to Sanity.io and redesign the frontend with Astro.
 **Deadline:** TBD
 **Stakeholders:** Arnold, Colin
-**Next Action:** Wait for response after latest follow-up.
+**Next Action:** Stand by — Colin is waiting for his client's reply.
 **Stack:**
 - Current: Strapi (backend)
 - Proposed: Sanity.io (backend/CMS) + Astro (frontend)
@@ -71,6 +96,7 @@
 - Followed up with Colin on the proposal (2026-03-12).
 - Follow-up checkpoint set: 2026-03-18 (Wednesday) — send a second follow-up if no response.
 - Latest Rosebowl proposal follow-up sent.
+- Colin responded (2026-04-06): waiting for his client's reply. Arnold is on standby.
 
 ---
 
@@ -114,6 +140,8 @@
 
 ## Future Project Ideas
 - **PA Mobile App:** Explore how to translate this Markdown-based AI workflow and sub-agent architecture into a standalone mobile app product.
+- **OpenClaw Services:** Post Fiverr services offering OpenClaw support. Research Fiverr marketplace positioning and service packages.
+- **Utility Websites + AdSense:** Create one-page utility websites with Google AdSense monetization. Research utility niches with search volume, AdSense policies, and SEO strategy.
 
 ---
 

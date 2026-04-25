@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0.0",
+  "date": "2026-04-20",
+  "date_label": "Monday, April 20, 2026",
+  "workflow": "morning_routine",
+  "top_3": [
+    "[Todoist] Verify Brevo email end-to-end",
+    "[Todoist] Pay Converge internet",
+    "[Todoist] Send Manny GCash ₱700"
+  ],
+  "todoist": {
+    "top_priorities": [
+      "Verify Brevo email end-to-end",
+      "Pay Converge internet",
+      "Send Manny GCash ₱700"
+    ],
+    "overdue": [],
+    "due_today": [
+      "Pay Converge internet",
+      "Update budget spreadsheet",
+      "Finish new images update - Luxury Leads"
+    ],
+    "upcoming": [
+      {
+        "content": "Send Manny GCash ₱700",
+        "due_date": "2026-04-21"
+      },
+      {
+        "content": "Send Song List to Music Team",
+        "due_date": "2026-04-21"
+      }
+    ],
+    "error": null
+  },
+  "carryovers": [],
+  "due_items": [],
+  "stale_reminders": [],
+  "preaching": {
+    "upcoming_sunday": "2026-04-26",
+    "is_preaching": false
+  },
+  "sections": {
+    "sermon_window": false,
+    "preaching": false,
+    "sermon_items_included": false,
+    "friday_items_expected": false,
+    "friday_items_included": false
+  },
+  "validation": {
+    "daily_log_top3_written": true
+  }
+}

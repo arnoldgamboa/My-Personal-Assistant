@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "automation/README.md",
+                "file": "skills/daily_briefing/SKILL.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "SKILL"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "brief",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -183,8 +183,15 @@
       "bases:Create new base": false
     }
   },
-  "active": "78d130b48471ef5f",
+  "active": "fa2c688b75de5c84",
   "lastOpenFiles": [
+    "Untitled 2.canvas",
+    "AGENTS.md",
+    "contracts/operating_state_contract.md",
+    "workflows/morning_routine.md",
+    "workflows/weekly_planning.md",
+    "workflows/weekly_review.md",
+    "automation/README.md",
     "context/bookmarks.md",
     "context/must_watch_list.md",
     "context/goals.md",
@@ -207,14 +214,7 @@
     "memory/daily_briefing_log.md",
     "memory/decisions.md",
     "memory/learnings.md",
-    "inbox/Brain_Dumps_Dashboard.md",
-    "inbox/ideas/2026-03-27-openclaw-upwork-side-lines.md",
-    "inbox/ideas/2026-03-26-claude-code-telegram.md",
     "inbox/ideas",
-    "2026-03-26.md",
-    "CLAUDE.md",
-    "memory/arwenhq_mvp_checklist.md",
-    "skills/brain_dump/SKILL.md",
     "skills/brain_dump"
   ]
 }

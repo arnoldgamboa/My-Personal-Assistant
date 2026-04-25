@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0.0",
+  "date": "2026-04-18",
+  "date_label": "Saturday, April 18, 2026",
+  "workflow": "weekend_brief",
+  "day": "Saturday",
+  "preaching": true,
+  "upcoming_sunday": "2026-04-19",
+  "next_week_priorities": [
+    "Bukidtek: Server creation",
+    "Verify Brevo email end-to-end",
+    "Pay Converge internet"
+  ],
+  "carryovers": [
+    "Update budget spreadsheet [Personal] — carry forward",
+    "Fix Team Chat ghost text bug in ArwenHQ — carry forward",
+    "Verify Brevo email end-to-end in ArwenHQ — carry forward"
+  ],
+  "todoist": {
+    "overdue": [],
+    "due_today": [
+      "Sermon prep: Refine outline & find illustrations"
+    ],
+    "upcoming": [
+      {
+        "content": "Sermon prep: Finalize draft & practice",
+        "due_date": "2026-04-19"
+      },
+      {
+        "content": "Pay Converge internet",
+        "due_date": "2026-04-20"
+      },
+      {
+        "content": "Send the excel sheet to Boracay",
+        "due_date": "2026-04-20"
+      },
+      {
+        "content": "Update budget spreadsheet",
+        "due_date": "2026-04-20"
+      }
+    ]
+  }
+}

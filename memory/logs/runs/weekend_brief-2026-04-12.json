@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "date": "2026-04-12",
+  "date_label": "Sunday, April 12, 2026",
+  "workflow": "weekend_brief",
+  "day": "Sunday",
+  "preaching": true,
+  "upcoming_sunday": "2026-04-12",
+  "next_week_priorities": [
+    "Deposit to RCBC (₱53,000)",
+    "Bukidtek: Server creation",
+    "Verify Brevo email end-to-end"
+  ],
+  "carryovers": [
+    "Update budget spreadsheet [Personal] — carry forward",
+    "Fix Team Chat ghost text bug in ArwenHQ — carry forward",
+    "Verify Brevo email end-to-end in ArwenHQ — carry forward"
+  ],
+  "todoist": {
+    "overdue": [],
+    "due_today": [],
+    "upcoming": [
+      {
+        "content": "Update budget spreadsheet",
+        "due_date": "2026-04-13"
+      },
+      {
+        "content": "Ask employees to volunteer for Tech Talk",
+        "due_date": "2026-04-13"
+      },
+      {
+        "content": "Deposit to RCBC (₱53,000)",
+        "due_date": "2026-04-14"
+      },
+      {
+        "content": "Send Manny GCash ₱700",
+        "due_date": "2026-04-14"
+      },
+      {
+        "content": "Send LifeCity gift/offering",
+        "due_date": "2026-04-14"
+      },
+      {
+        "content": "Send Song List to Music Team",
+        "due_date": "2026-04-14"
+      },
+      {
+        "content": "Pay Salmon",
+        "due_date": "2026-04-14"
+      },
+      {
+        "content": "Pay UB/Citibank via RCBC app",
+        "due_date": "2026-04-14"
+      },
+      {
+        "content": "Ask ELs to submit their expenses on Wednesday",
+        "due_date": "2026-04-14"
+      }
+    ]
+  }
+}

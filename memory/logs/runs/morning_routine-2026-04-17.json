@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0.0",
+  "date": "2026-04-17",
+  "date_label": "Friday, April 17, 2026",
+  "workflow": "morning_routine",
+  "top_3": [
+    "[Todoist] Bukidtek: Server creation",
+    "[Todoist] Verify Brevo email end-to-end",
+    "[Todoist] Pay Converge internet"
+  ],
+  "todoist": {
+    "top_priorities": [
+      "Bukidtek: Server creation",
+      "Verify Brevo email end-to-end",
+      "Pay Converge internet"
+    ],
+    "overdue": [
+      "Update budget spreadsheet"
+    ],
+    "due_today": [
+      "Sermon prep: Begin research & exegesis"
+    ],
+    "upcoming": [
+      {
+        "content": "Sermon prep: Refine outline & find illustrations",
+        "due_date": "2026-04-18"
+      },
+      {
+        "content": "Sermon prep: Finalize draft & practice",
+        "due_date": "2026-04-19"
+      }
+    ],
+    "error": null
+  },
+  "carryovers": [
+    {
+      "task": "Update budget spreadsheet"
+    }
+  ],
+  "due_items": [
+    {
+      "label": "due_today",
+      "payment": "Pay Converge (internet)",
+      "amount": "",
+      "due_date": "2026-04-17",
+      "due_in_days": 0,
+      "source": "finances",
+      "weekend_note": ""
+    }
+  ],
+  "stale_reminders": [],
+  "preaching": {
+    "upcoming_sunday": "2026-04-19",
+    "is_preaching": true
+  },
+  "sections": {
+    "sermon_window": true,
+    "preaching": true,
+    "sermon_items_included": true,
+    "friday_items_expected": true,
+    "friday_items_included": true
+  },
+  "validation": {
+    "daily_log_top3_written": true
+  }
+}

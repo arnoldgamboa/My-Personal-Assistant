@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "date": "2026-04-10",
+  "date_label": "Friday, April 10, 2026",
+  "workflow": "morning_routine",
+  "top_3": [
+    "[Todoist] AccountingPro: Review new page from MJ",
+    "[Todoist] Pay RCBC loan x2003 (₱16,712.30)",
+    "[Todoist] Update budget spreadsheet"
+  ],
+  "todoist": {
+    "top_priorities": [
+      "AccountingPro: Review new page from MJ",
+      "Pay RCBC loan x2003 (₱16,712.30)",
+      "Update budget spreadsheet"
+    ],
+    "overdue": [
+      "AccountingPro: Review new page from MJ",
+      "Pay RCBC loan x2003 (₱16,712.30)",
+      "Update budget spreadsheet",
+      "Pay Salmon",
+      "Send LifeCity gift/offering",
+      "Renew Codex",
+      "Post the 'In the Beginning' Facebook post regarding Gospel of John series",
+      "Work on and send the attendance logs to Teams"
+    ],
+    "due_today": [
+      "Cancel the Photo app"
+    ],
+    "upcoming": [
+      {
+        "content": "Cancel MENU Generated AI subscription",
+        "due_date": "2026-04-12"
+      }
+    ],
+    "error": null
+  },
+  "carryovers": [
+    {
+      "task": "AccountingPro: Review new page from MJ"
+    },
+    {
+      "task": "Pay RCBC loan x2003 (₱16,712.30)"
+    },
+    {
+      "task": "Update budget spreadsheet"
+    },
+    {
+      "task": "Pay Salmon"
+    },
+    {
+      "task": "Send LifeCity gift/offering"
+    }
+  ],
+  "due_items": [
+    {
+      "label": "due_today",
+      "payment": "Submit Liquidation Expense",
+      "amount": "",
+      "due_date": "2026-04-10",
+      "due_in_days": 0,
+      "source": "ballys",
+      "weekend_note": ""
+    }
+  ],
+  "stale_reminders": [],
+  "preaching": {
+    "upcoming_sunday": "2026-04-12",
+    "is_preaching": true
+  },
+  "sections": {
+    "sermon_window": true,
+    "preaching": true,
+    "sermon_items_included": true,
+    "friday_items_expected": true,
+    "friday_items_included": true
+  },
+  "validation": {
+    "daily_log_top3_written": true
+  }
+}

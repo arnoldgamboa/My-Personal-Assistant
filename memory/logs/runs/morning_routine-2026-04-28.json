@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0.0",
+  "date": "2026-04-28",
+  "date_label": "Tuesday, April 28, 2026",
+  "workflow": "morning_routine",
+  "top_3": [
+    "[Todoist] Send Song List to Music Team",
+    "[Todoist] Check Gracelene's message re video",
+    "[Todoist] Work on Tempo"
+  ],
+  "todoist": {
+    "top_priorities": [
+      "Send Song List to Music Team",
+      "Check Gracelene's message re video",
+      "Work on Tempo"
+    ],
+    "overdue": [
+      "Check Gracelene's message re video",
+      "Work on Tempo",
+      "Start working and checking the BukidTek email and task",
+      "Update budget spreadsheet"
+    ],
+    "due_today": [
+      "Send Song List to Music Team"
+    ],
+    "upcoming": [
+      {
+        "content": "Publish Shipped & Unfinished blog post (weekly Wednesday)",
+        "due_date": "2026-04-29"
+      },
+      {
+        "content": "Send money to parents",
+        "due_date": "2026-04-30"
+      }
+    ],
+    "error": null
+  },
+  "carryovers": [
+    {
+      "task": "Check Gracelene's message re video"
+    },
+    {
+      "task": "Work on Tempo"
+    },
+    {
+      "task": "Start working and checking the BukidTek email and task"
+    },
+    {
+      "task": "Update budget spreadsheet"
+    }
+  ],
+  "due_items": [
+    {
+      "label": "due_in_days",
+      "payment": "Send money to parents",
+      "amount": "",
+      "due_date": "2026-04-30",
+      "due_in_days": 2,
+      "source": "finances",
+      "weekend_note": ""
+    },
+    {
+      "label": "due_in_days",
+      "payment": "Debt: RCBC *2003",
+      "amount": "₱16,712.30",
+      "due_date": "2026-04-30",
+      "due_in_days": 2,
+      "source": "finances",
+      "weekend_note": ""
+    },
+    {
+      "label": "due_in_days",
+      "payment": "Send money to parents",
+      "amount": "",
+      "due_date": "2026-04-30",
+      "due_in_days": 2,
+      "source": "finances",
+      "weekend_note": ""
+    },
+    {
+      "label": "due_in_days",
+      "payment": "AXA Life insurance",
+      "amount": "",
+      "due_date": "2026-05-01",
+      "due_in_days": 3,
+      "source": "finances",
+      "weekend_note": ""
+    }
+  ],
+  "stale_reminders": [],
+  "preaching": {
+    "upcoming_sunday": "2026-05-03",
+    "is_preaching": true
+  },
+  "sections": {
+    "sermon_window": false,
+    "preaching": true,
+    "sermon_items_included": false,
+    "friday_items_expected": false,
+    "friday_items_included": false
+  },
+  "validation": {
+    "daily_log_top3_written": true
+  }
+}

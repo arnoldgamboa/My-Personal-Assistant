@@ -5,7 +5,7 @@ const path = require("path");
 const https = require("https");
 
 const ROOT = path.resolve(__dirname, "..");
-const WORKFLOWS = new Set(["morning_routine", "weekly_review", "task_capture", "reminder_check"]);
+const WORKFLOWS = new Set(["morning_routine", "weekly_review", "task_capture", "reminder_check", "weekend_brief"]);
 
 function fail(message) {
   console.error(`Error: ${message}`);
@@ -67,9 +67,31 @@ function compareTodoistTasks(a, b) {
   return dueA.localeCompare(dueB);
 }
 
+function compareTodoistUpcomingTasks(a, b) {
+  const dueA = a.due?.date || "9999-12-31";
+  const dueB = b.due?.date || "9999-12-31";
+  const dueDelta = dueA.localeCompare(dueB);
+  if (dueDelta !== 0) return dueDelta;
+  return (b.priority || 1) - (a.priority || 1);
+}
+
 function normalizeTodoistTasks(payload) {
   const tasks = payload.results || payload.tasks || payload;
   return Array.isArray(tasks) ? tasks : [];
+}
+
+function dedupeTodoistTasks(tasks) {
+  const seen = new Set();
+  const unique = [];
+
+  for (const task of tasks) {
+    const key = `${task.content || ""}::${task.due?.date || ""}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    unique.push(task);
+  }
+
+  return unique;
 }
 
 function categorizeTodoistTasks(tasks, runDate) {
@@ -90,7 +112,7 @@ function categorizeTodoistTasks(tasks, runDate) {
 
   overdue.sort(compareTodoistTasks);
   today.sort(compareTodoistTasks);
-  upcoming.sort(compareTodoistTasks);
+  upcoming.sort(compareTodoistUpcomingTasks);
 
   return { overdue, today, upcoming };
 }
@@ -110,8 +132,8 @@ async function fetchTodoistSnapshot(runDate) {
   }
 
   try {
-    const [todayPayload, upcomingPayload] = await Promise.all([
-      fetchJson("api.todoist.com", "/api/v1/tasks?filter=today%20|%20overdue", {
+    const [allTasksPayload, next7Payload] = await Promise.all([
+      fetchJson("api.todoist.com", "/api/v1/tasks", {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       }),
@@ -121,16 +143,24 @@ async function fetchTodoistSnapshot(runDate) {
       }),
     ]);
 
-    const primaryTasks = normalizeTodoistTasks(todayPayload);
-    const futureTasks = normalizeTodoistTasks(upcomingPayload);
+    const primaryTasks = dedupeTodoistTasks(normalizeTodoistTasks(allTasksPayload));
+    const futureTasks = dedupeTodoistTasks(normalizeTodoistTasks(next7Payload));
     const categorizedPrimary = categorizeTodoistTasks(primaryTasks, runDate);
     const categorizedFuture = categorizeTodoistTasks(
       futureTasks.filter((task) => (task.due?.date || "") > runDate),
       runDate
     );
 
+    // Top priorities = tasks due today OR overdue only
+    // Tasks with no due date are NOT included in top priorities
+    // (they appear in a separate section if needed)
+    const dueTodayOrOverdue = [
+      ...categorizedPrimary.today,
+      ...categorizedPrimary.overdue,
+    ].sort(compareTodoistTasks);
+
     return {
-      topPriorities: primaryTasks.sort(compareTodoistTasks).slice(0, 3).map((task) => task.content),
+      topPriorities: dueTodayOrOverdue.slice(0, 3).map((task) => task.content),
       overdue: categorizedPrimary.overdue.map((task) => task.content),
       today: categorizedPrimary.today.map((task) => task.content),
       upcoming: categorizedFuture.upcoming
@@ -160,7 +190,7 @@ function writeFile(relativePath, content, options, touchedFiles) {
 
 function parseArgs(argv) {
   if (argv.length === 0) {
-    fail("Usage: run <workflow_name> --date YYYY-MM-DD --non-interactive [--dry-run] [--input \"...\"] [--input-file file]");
+    fail("Usage: run <workflow_name> [--date YYYY-MM-DD] --non-interactive [--dry-run] [--format json|telegram] [--input \"...\"] [--input-file file]");
   }
 
   const workflow = argv[0];
@@ -231,6 +261,11 @@ function longDate(dateString) {
   return `${dayName(dateString)}, ${monthName(dt.getUTCMonth())} ${String(dt.getUTCDate()).padStart(2, "0")}, ${dt.getUTCFullYear()}`;
 }
 
+function shortDate(dateString) {
+  const dt = asUtcDate(dateString);
+  return `${dayName(dateString)}, ${monthName(dt.getUTCMonth())} ${String(dt.getUTCDate()).padStart(2, "0")}, ${dt.getUTCFullYear()}`;
+}
+
 function formatCurrency(value) {
   if (!value || value === "-") return "";
   return value.trim();
@@ -244,6 +279,19 @@ function daysBetween(startDateString, endDateString) {
 
 function isoDateFromParts(year, monthIndexZero, day) {
   return `${year}-${String(monthIndexZero + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+}
+
+function currentDateInTimezone(timeZone = "Asia/Manila") {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(new Date());
+  const year = parts.find((part) => part.type === "year")?.value;
+  const month = parts.find((part) => part.type === "month")?.value;
+  const day = parts.find((part) => part.type === "day")?.value;
+  return `${year}-${month}-${day}`;
 }
 
 function lastDayOfMonth(year, monthIndexZero) {
@@ -577,6 +625,27 @@ function extractCarryovers(dailyLogText) {
   return unique;
 }
 
+function extractBrainDumps() {
+  const brainDumpPath = path.join(ROOT, "inbox/brain-dump.md");
+  if (!fs.existsSync(brainDumpPath)) return [];
+  
+  const content = fs.readFileSync(brainDumpPath, "utf8");
+  const items = [];
+  
+  for (const line of content.split("\n")) {
+    const match = line.match(/^-\s+(.+)$/);
+    if (match) {
+      const item = match[1].trim();
+      // Skip metadata/header lines
+      if (item && !item.startsWith("[") && !item.startsWith("<") && item.length > 10) {
+        items.push(item);
+      }
+    }
+  }
+  
+  return items.slice(-5); // Return last 5 items
+}
+
 function upcomingSunday(runDate) {
   const dt = asUtcDate(runDate);
   const day = dt.getUTCDay();
@@ -597,36 +666,65 @@ function isPreachingWeek(churchText, runDate) {
   return !regex.test(churchText);
 }
 
-function defaultTop3(carryovers, nextActions, preaching, runDate, todoistTopPriorities = []) {
-  const top = [];
-
-  for (const task of todoistTopPriorities) {
-    if (top.length >= 3) break;
-    top.push(`[Todoist] ${task}`);
-  }
-
-  for (const task of carryovers) {
-    if (top.length >= 2) break;
-    const value = `[Carryover] ${task}`;
-    if (!top.includes(value)) top.push(value);
-  }
-
-  for (const action of nextActions) {
-    if (top.length >= 3) break;
-    const value = `[Solopreneur] ${action.project}: ${action.action}`;
-    if (!top.includes(value)) top.push(value);
-  }
-
+function defaultTop3(carryovers, nextActions, preaching, runDate, todoistTopPriorities = [], brainDumps = [], reminders = []) {
   const day = dayName(runDate);
-  if (top.length < 3 && day === "Friday") {
-    top.push("[Bally's] Work on Tempo tonight");
+  const top = [];
+  const usedContent = new Set();
+
+  function add(label, content, source) {
+    if (top.length >= 3) return false;
+    if (usedContent.has(content)) return false;
+    usedContent.add(content);
+    top.push(label);
+    return true;
   }
-  if (top.length < 3 && preaching && ["Thursday", "Friday", "Saturday", "Sunday"].includes(day)) {
-    top.push("[Church] Continue sermon development for Sunday");
+
+  // --- PRIORITY 1: Tasks due today or overdue ---
+  for (const task of todoistTopPriorities) {
+    if (!add(`[Todoist] ${task}`, task, "due_today_or_overdue")) break;
+  }
+
+  // --- PRIORITY 2: Carryovers (overdue items) ---
+  for (const task of carryovers) {
+    if (!add(`[Carryover] ${task}`, task, "overdue")) break;
+  }
+
+  // --- PRIORITY 3: Day-specific context from preferences ---
+  if (day === "Tuesday" || day === "Wednesday") {
+    add(`[Bally's] Focus on team deliverables and office communications`, "ballys_focus", "day_context");
+  }
+  if (day === "Friday" || day === "Saturday") {
+    add(`[LifeCity] Sermon prep and ministry focus`, "lifecity_focus", "day_context");
+  }
+  if (preaching && ["Thursday", "Friday", "Saturday", "Sunday"].includes(day)) {
+    add(`[Church] Continue sermon development for Sunday`, "sermon_prep", "day_context");
+  }
+
+  // --- PRIORITY 4: Active project next actions (only if relevant to today's role) ---
+  const solopreneurDays = ["Monday", "Thursday"];
+  const ballysDays = ["Tuesday", "Wednesday"];
+  if (solopreneurDays.includes(day) || ballysDays.includes(day)) {
+    for (const action of nextActions.slice(0, 2)) {
+      const content = `${action.project}: ${action.action}`;
+      if (!add(`[Solopreneur] ${content}`, content, "project")) break;
+    }
+  }
+
+  // --- PRIORITY 5: Mind dumps and learnings (low-pressure, only if nothing urgent) ---
+  if (top.length < 3 && brainDumps.length > 0) {
+    for (const dump of brainDumps.slice(0, 2)) {
+      if (!add(`[Idea] ${dump}`, dump, "brain_dump")) break;
+    }
+  }
+
+  // --- FALLBACK: Generic focus suggestion ---
+  if (top.length < 3) {
+    add("[Focus] Review and clear one active project blocker", "project_blocker", "fallback");
   }
   while (top.length < 3) {
-    top.push("[Solopreneur] Clear one active project blocker");
+    add("[Focus] Protect time for deep work on highest-impact task", "deep_work", "fallback");
   }
+
   return top.slice(0, 3);
 }
 
@@ -814,9 +912,10 @@ async function runMorningRoutine(runDate, options, touchedFiles) {
   const todoist = await fetchTodoistSnapshot(runDate);
 
   const preaching = isPreachingWeek(church, runDate);
-  const carryovers = extractCarryovers(dailyLog).slice(0, 5);
+  const carryovers = todoist.overdue.slice(0, 5);
   const nextActions = extractNextActions(projects);
-  const top3 = defaultTop3(carryovers, nextActions, preaching, runDate, todoist.topPriorities);
+  const brainDumps = extractBrainDumps();
+  const top3 = defaultTop3(carryovers, nextActions, preaching, runDate, todoist.topPriorities, brainDumps);
   const dueItems = parseFinances(finances, ballys, runDate);
   const staleReminders = detectStaleReminders(inbox, dailyLog);
   const day = dayName(runDate);
@@ -892,6 +991,86 @@ async function runMorningRoutine(runDate, options, touchedFiles) {
 function appendWeeklySummary(runDate, summary, options, touchedFiles) {
   const filePath = `memory/logs/week-${runDate}.md`;
   writeFile(filePath, summary, options, touchedFiles);
+}
+
+async function runWeekendBrief(runDate, options, touchedFiles) {
+  const required = [
+    "context/projects.md",
+    "context/lifecity_church.md",
+    "memory/daily_briefing_log.md",
+  ];
+  ensureRequiredFiles(required);
+
+  const church = readFile("context/lifecity_church.md");
+  const dailyLog = readFile("memory/daily_briefing_log.md");
+  const todoist = await fetchTodoistSnapshot(runDate);
+
+  const preaching = isPreachingWeek(church, runDate);
+  const day = dayName(runDate);
+  const nextSunday = upcomingSunday(runDate);
+  const nextWeekTop3 = todoist.topPriorities.slice(0, 3);
+
+  const carryovers = extractCarryovers(dailyLog).slice(0, 3);
+
+  const result = {
+    schema_version: "1.0.0",
+    date: runDate,
+    date_label: longDate(runDate),
+    workflow: "weekend_brief",
+    day,
+    preaching,
+    upcoming_sunday: nextSunday,
+    next_week_priorities: nextWeekTop3,
+    carryovers,
+    todoist: {
+      overdue: todoist.overdue,
+      due_today: todoist.today,
+      upcoming: todoist.upcoming,
+    },
+  };
+
+  writeFile(
+    `memory/logs/runs/weekend_brief-${runDate}.json`,
+    `${JSON.stringify(result, null, 2)}\n`,
+    options,
+    touchedFiles
+  );
+
+  return result;
+}
+
+function renderWeekendBriefTelegram(result) {
+  const sections = [];
+  const day = result.day || "";
+  sections.push(`**Weekend Brief — ${day}, ${result.date}**`);
+
+  const weekendFocus = [];
+  if (result.preaching) {
+    weekendFocus.push("⛪ Prepare and deliver Sunday sermon");
+  }
+  if (result.carryovers && result.carryovers.length > 0) {
+    weekendFocus.push(`📋 Clear 1-2 carryovers: ${result.carryovers[0]}`);
+  }
+  if (weekendFocus.length === 0) {
+    weekendFocus.push("🧘 Rest and recharge — no major work blocks");
+  }
+  sections.push(`**🎯 Weekend Focus**\n${renderBulletList(weekendFocus)}`);
+
+  const sermonStatus = result.preaching ? "Yes" : "No";
+  sections.push(`**⛪ Church / Sermon Status**\n- Preaching this Sunday (${result.upcoming_sunday})? ${sermonStatus}`);
+
+  if (result.next_week_priorities && result.next_week_priorities.length > 0) {
+    sections.push(`**📅 Upcoming for Next Week**\n${result.next_week_priorities.map((item, index) => `${index + 1}. ${item}`).join("\n")}`);
+  }
+
+  sections.push(`**🧘 Rest & Personal**\n- Protect rest time, family, and health. Don't let work bleed into the weekend.`);
+
+  const overdue = result.todoist?.overdue || [];
+  if (overdue.length > 0 && overdue.length <= 3) {
+    sections.push(`**💡 One Quick Win (Optional)**\n- If energy permits: clear ${overdue[0]} before Monday.`);
+  }
+
+  return sections.join("\n\n");
 }
 
 function runWeeklyReview(runDate, options, touchedFiles) {
@@ -1173,15 +1352,96 @@ function printResult(result) {
   console.log(JSON.stringify(result, null, 2));
 }
 
+function renderBulletList(items, emptyLabel = "- None") {
+  if (!items || items.length === 0) return emptyLabel;
+  return items.map((item) => `- ${item}`).join("\n");
+}
+
+function renderUpcomingList(items) {
+  if (!items || items.length === 0) return "- None within the current 2-day window";
+  return items.map((item) => `- ${item.content} — ${item.due_date}`).join("\n");
+}
+
+function renderDueItems(items) {
+  if (!items || items.length === 0) return "";
+  return items
+    .map((item) => {
+      if (item.label === "due_today") return `- 🔴 **Due today:** ${item.payment}`;
+      if (item.label === "due_tomorrow") return `- ⚠️ **Due tomorrow:** ${item.payment}`;
+      return `- 📅 **Due in ${item.due_in_days} days:** ${item.payment}`;
+    })
+    .join("\n");
+}
+
+function buildFocusSuggestion(result) {
+  const overdue = result.todoist?.overdue || [];
+  const dueToday = result.todoist?.due_today || [];
+  const dueItems = result.due_items || [];
+  const top3 = result.top_3 || [];
+
+  if (overdue.length > 0) {
+    const firstOverdue = overdue[0];
+    const firstToday = dueToday[0];
+    if (firstToday) {
+      return `Clear the overdue stack first, starting with ${firstOverdue}, then move to ${firstToday}.`;
+    }
+    return `Clear the overdue stack first, starting with ${firstOverdue}.`;
+  }
+
+  const dueTodayBill = dueItems.find((item) => item.label === "due_today");
+  if (dueTodayBill && dueToday[0]) {
+    return `Handle ${dueTodayBill.payment} early, then move into ${dueToday[0]}.`;
+  }
+
+  if (top3.length >= 2) {
+    return `Start with ${top3[0].replace(/^\[[^\]]+\]\s*/, "")}, then focus on ${top3[1].replace(/^\[[^\]]+\]\s*/, "")}.`;
+  }
+
+  return "Protect one uninterrupted block for your highest-priority task first.";
+}
+
+function renderMorningRoutineTelegram(result) {
+  const sections = [];
+  sections.push(`**Daily Briefing — ${shortDate(result.date)}**`);
+  sections.push(`**Today's Top 3 Priorities**\n${result.top_3.map((item, index) => `${index + 1}. ${item}`).join("\n")}`);
+  sections.push(`**✅ Tasks (Todoist Source of Truth)**\n\n**🔴 Past Due (Missed)**\n${renderBulletList(result.todoist?.overdue)}\n\n**🎯 Due Today**\n${renderBulletList(result.todoist?.due_today)}\n\n**📅 Upcoming**\n${renderUpcomingList(result.todoist?.upcoming)}`);
+
+  const bills = renderDueItems(result.due_items);
+  if (bills) {
+    sections.push(`**💳 Bills & Payments**\n${bills}`);
+  }
+
+  if (result.carryovers && result.carryovers.length > 0) {
+    sections.push(`**Flags & Blockers**\n- Carryovers / overdue tasks still open:\n${renderBulletList(result.carryovers.map((item) => item.task))}`);
+  }
+
+  sections.push(`**Focus Suggestion**\n- ${buildFocusSuggestion(result)}`);
+
+  return sections.join("\n\n");
+}
+
+function printFormattedResult(result, workflow, format) {
+  if (format === "telegram" && workflow === "morning_routine") {
+    console.log(renderMorningRoutineTelegram(result));
+    return;
+  }
+  if (format === "telegram" && workflow === "weekend_brief") {
+    console.log(renderWeekendBriefTelegram(result));
+    return;
+  }
+  printResult(result);
+}
+
 async function main() {
   const parsed = parseArgs(process.argv.slice(2));
   const workflow = parsed.workflow;
   const flags = parsed.flags;
-  const runDate = flags.date || new Date().toISOString().slice(0, 10);
+  const runDate = flags.date || currentDateInTimezone();
   const options = {
     nonInteractive: Boolean(flags["non-interactive"]),
     dryRun: Boolean(flags["dry-run"]),
   };
+  const format = flags.format || "json";
 
   preflight(runDate, workflow, options);
   const touchedFiles = new Set();
@@ -1196,13 +1456,15 @@ async function main() {
       result = runTaskCapture(runDate, flags, options, touchedFiles);
     } else if (workflow === "reminder_check") {
       result = runReminderCheck(runDate, options, touchedFiles);
+    } else if (workflow === "weekend_brief") {
+      result = await runWeekendBrief(runDate, options, touchedFiles);
     } else {
       fail(`Unsupported workflow: ${workflow}`);
       return;
     }
 
     writeStatusArtifact(runDate, workflow, true, touchedFiles, [], options);
-    printResult(result);
+    printFormattedResult(result, workflow, format);
   } catch (error) {
     writeStatusArtifact(runDate, workflow, false, touchedFiles, [String(error.message || error)], options);
     fail(String(error.message || error));

@@ -36,7 +36,12 @@
 **Rationale:** Obsidian provides a rich graph view, quick navigation, and bidirectional linking over the existing markdown files without breaking any AI capabilities.
 **Impact:** AI will now format and refer to this workspace as an Obsidian Vault, utilizing `[[WikiLinks]]` format where useful and treating new files as new network nodes.
 
-### Ditch OpenClaw
+### Restart ArwenHQ — Target May Completion
+**Date:** 2026-04-12
+**Context:** ArwenHQ went stale after time away last month. Need to get it back on track.
+**Decision:** Restart ArwenHQ development next week with goal to finish by May 2026.
+**Rationale:** Product has been idle too long; momentum needs to be rebuilt quickly.
+**Impact:** ArwenHQ moves to active status; next actions to be defined at project level.
 **Date:** 2026-03-26
 **Context:** Brain dump reflection on PA interface and tooling.
 **Decision:** Ditch OpenClaw completely and stick with the raw Personal Assistant AI.

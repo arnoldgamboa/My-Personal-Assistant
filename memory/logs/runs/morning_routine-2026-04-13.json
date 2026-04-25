@@ -1,0 +1,109 @@
+{
+  "schema_version": "1.0.0",
+  "date": "2026-04-13",
+  "date_label": "Monday, April 13, 2026",
+  "workflow": "morning_routine",
+  "top_3": [
+    "[Todoist] Deposit to RCBC (₱53,000)",
+    "[Todoist] Bukidtek: Server creation",
+    "[Todoist] Verify Brevo email end-to-end"
+  ],
+  "todoist": {
+    "top_priorities": [
+      "Deposit to RCBC (₱53,000)",
+      "Bukidtek: Server creation",
+      "Verify Brevo email end-to-end"
+    ],
+    "overdue": [],
+    "due_today": [
+      "Update budget spreadsheet",
+      "Ask employees to volunteer for Tech Talk"
+    ],
+    "upcoming": [
+      {
+        "content": "Deposit to RCBC (₱53,000)",
+        "due_date": "2026-04-14"
+      },
+      {
+        "content": "Send Manny GCash ₱700",
+        "due_date": "2026-04-14"
+      },
+      {
+        "content": "Send LifeCity gift/offering",
+        "due_date": "2026-04-14"
+      },
+      {
+        "content": "Send Song List to Music Team",
+        "due_date": "2026-04-14"
+      },
+      {
+        "content": "Pay Salmon",
+        "due_date": "2026-04-14"
+      },
+      {
+        "content": "Pay UB/Citibank via RCBC app",
+        "due_date": "2026-04-14"
+      },
+      {
+        "content": "Submit Medicine refund",
+        "due_date": "2026-04-14"
+      },
+      {
+        "content": "Ask ELs to submit their expenses on Wednesday",
+        "due_date": "2026-04-14"
+      },
+      {
+        "content": "Unsubscribe from Perplexity",
+        "due_date": "2026-04-15"
+      }
+    ],
+    "error": null
+  },
+  "carryovers": [],
+  "due_items": [
+    {
+      "label": "due_tomorrow",
+      "payment": "Deposit to RCBC",
+      "amount": "₱53,000",
+      "due_date": "2026-04-14",
+      "due_in_days": 1,
+      "source": "finances",
+      "weekend_note": "",
+      "sequence_note": "Deposit first, then pay UB/Citibank."
+    },
+    {
+      "label": "due_tomorrow",
+      "payment": "Debt: UB/Citibank *2513",
+      "amount": "₱9,559.21",
+      "due_date": "2026-04-14",
+      "due_in_days": 1,
+      "source": "finances",
+      "weekend_note": "",
+      "sequence_note": "Pay after RCBC deposit."
+    },
+    {
+      "label": "due_tomorrow",
+      "payment": "Submit Phone/Medicine Expense",
+      "amount": "",
+      "due_date": "2026-04-14",
+      "due_in_days": 1,
+      "source": "ballys",
+      "weekend_note": ""
+    }
+  ],
+  "stale_reminders": [],
+  "preaching": {
+    "upcoming_sunday": "2026-04-19",
+    "is_preaching": true
+  },
+  "sections": {
+    "sermon_window": false,
+    "preaching": true,
+    "sermon_items_included": false,
+    "friday_items_expected": false,
+    "friday_items_included": false
+  },
+  "validation": {
+    "daily_log_top3_written": true
+  }
+}

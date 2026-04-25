@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0.0",
+  "date": "2026-04-14",
+  "date_label": "Tuesday, April 14, 2026",
+  "workflow": "morning_routine",
+  "top_3": [
+    "[Todoist] Deposit to RCBC (₱53,000)",
+    "[Todoist] Bukidtek: Server creation",
+    "[Todoist] Verify Brevo email end-to-end"
+  ],
+  "todoist": {
+    "top_priorities": [
+      "Deposit to RCBC (₱53,000)",
+      "Bukidtek: Server creation",
+      "Verify Brevo email end-to-end"
+    ],
+    "overdue": [
+      "Update budget spreadsheet",
+      "Ask employees to volunteer for Tech Talk"
+    ],
+    "due_today": [
+      "Deposit to RCBC (₱53,000)",
+      "Send Manny GCash ₱700",
+      "Send LifeCity gift/offering",
+      "Send Song List to Music Team",
+      "Pay Salmon",
+      "Pay UB/Citibank via RCBC app",
+      "Submit Medicine refund",
+      "Ask ELs to submit their expenses on Wednesday"
+    ],
+    "upcoming": [
+      {
+        "content": "Unsubscribe from Perplexity",
+        "due_date": "2026-04-15"
+      }
+    ],
+    "error": null
+  },
+  "carryovers": [
+    {
+      "task": "Update budget spreadsheet"
+    },
+    {
+      "task": "Ask employees to volunteer for Tech Talk"
+    }
+  ],
+  "due_items": [
+    {
+      "label": "due_today",
+      "payment": "Deposit to RCBC",
+      "amount": "₱53,000",
+      "due_date": "2026-04-14",
+      "due_in_days": 0,
+      "source": "finances",
+      "weekend_note": "",
+      "sequence_note": "Deposit first, then pay UB/Citibank."
+    },
+    {
+      "label": "due_today",
+      "payment": "Debt: UB/Citibank *2513",
+      "amount": "₱9,559.21",
+      "due_date": "2026-04-14",
+      "due_in_days": 0,
+      "source": "finances",
+      "weekend_note": "",
+      "sequence_note": "Pay after RCBC deposit."
+    },
+    {
+      "label": "due_today",
+      "payment": "Submit Phone/Medicine Expense",
+      "amount": "",
+      "due_date": "2026-04-14",
+      "due_in_days": 0,
+      "source": "ballys",
+      "weekend_note": ""
+    },
+    {
+      "label": "due_in_days",
+      "payment": "Pay Converge (internet)",
+      "amount": "",
+      "due_date": "2026-04-17",
+      "due_in_days": 3,
+      "source": "finances",
+      "weekend_note": ""
+    }
+  ],
+  "stale_reminders": [],
+  "preaching": {
+    "upcoming_sunday": "2026-04-19",
+    "is_preaching": true
+  },
+  "sections": {
+    "sermon_window": false,
+    "preaching": true,
+    "sermon_items_included": false,
+    "friday_items_expected": false,
+    "friday_items_included": false
+  },
+  "validation": {
+    "daily_log_top3_written": true
+  }
+}

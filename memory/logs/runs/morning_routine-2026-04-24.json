@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0.0",
+  "date": "2026-04-24",
+  "date_label": "Friday, April 24, 2026",
+  "workflow": "morning_routine",
+  "top_3": [
+    "[Todoist] Check Gracelene's message re video",
+    "[Todoist] Update budget spreadsheet",
+    "[LifeCity] Sermon prep and ministry focus"
+  ],
+  "todoist": {
+    "top_priorities": [
+      "Check Gracelene's message re video",
+      "Update budget spreadsheet"
+    ],
+    "overdue": [
+      "Update budget spreadsheet"
+    ],
+    "due_today": [
+      "Check Gracelene's message re video"
+    ],
+    "upcoming": [
+      {
+        "content": "Work on Tempo",
+        "due_date": "2026-04-25"
+      }
+    ],
+    "error": null
+  },
+  "carryovers": [
+    {
+      "task": "Update budget spreadsheet"
+    }
+  ],
+  "due_items": [],
+  "stale_reminders": [],
+  "preaching": {
+    "upcoming_sunday": "2026-04-26",
+    "is_preaching": false
+  },
+  "sections": {
+    "sermon_window": true,
+    "preaching": false,
+    "sermon_items_included": false,
+    "friday_items_expected": true,
+    "friday_items_included": true
+  },
+  "validation": {
+    "daily_log_top3_written": true
+  }
+}

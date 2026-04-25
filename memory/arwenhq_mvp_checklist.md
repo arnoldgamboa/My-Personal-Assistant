@@ -1,12 +1,14 @@
 # ArwenHQ — MVP Pre-Launch Checklist
 
-> Last updated: 2026-03-11
+> Last updated: 2026-04-12
 > Source: Arnold's brain dump, cross-referenced with ArwenHQ PRD v1.0
 > PRD: `resources/references/ArwenHQ_PRD.md`
 
 ---
 
-## 🎯 Suggested Priority Order (as of 2026-03-11)
+## 🎯 Restart Plan (as of 2026-04-12)
+**Goal:** Finish MVP by May 2026. Project went stale after time away last month — restarting next week.
+**Priority order:** See section below. Focus on blockers first (Brevo, ghost text, onboarding), then core UX.
 
 ### Do First — This Week (Blockers / Foundational)
 1. **Verify Brevo email end-to-end** — Everything downstream depends on it: invites, account activation, notifications. Nothing else can be properly tested without it.

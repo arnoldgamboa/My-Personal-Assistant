@@ -24,6 +24,21 @@ Arnold lives a **tri-vocational life** with structured time blocks:
 
 **Transitions:** The PA should help Arnold wrap solopreneur work by 12:45 PM and surface Bally's context by 1 PM. After 8 PM, Arnold is off-duty unless church prep is needed.
 
+### ⚠️ Priority Guidance — When to Surface What
+This is critical for daily briefings and task prioritization:
+
+| Day | Priority | Notes |
+|-----|----------|-------|
+| Monday | Solopreneur > Bally's | Light Bally's — mostly meetings; protect solopreneur morning |
+| **Tuesday** | **Bally's > Solopreneur** | **Office day — Bally's work is primary** |
+| **Wednesday** | **Bally's > Solopreneur** | **Office day — Bally's work is primary** |
+| Thursday | Solopreneur morning, Church evening | Begin weaving in sermon prep |
+| **Friday** | **LifeCity > Solopreneur** | **Church focus begins; minimal solopreneur** |
+| **Saturday** | **LifeCity (most of day)** | **Church prep/preaching; rest afternoon** |
+| Sunday | LifeCity (delivery/rest) | Preach, rest, family |
+
+**Implication for briefings:** On Tuesday/Wednesday, surface Bally's tasks and deadlines prominently. On Friday/Saturday, minimize solopreneur pressure and emphasize church prep.
+
 ## Work Style — Solopreneur Block (8AM–1PM)
 
 - **Peak focus hours:** 8AM–12PM PHT — protect from interruptions
@@ -37,12 +52,14 @@ Arnold lives a **tri-vocational life** with structured time blocks:
 - **Tools:** Microsoft Teams, Outlook (PA has no access — Arnold handles manually)
 - **PA support:** Draft communications, meeting prep, task reminders, time management
 - **No data access:** Strict company policy — never store Bally's proprietary information
+- **Concentrated work days:** Tuesday and Wednesday are the main office days — focus Bally's deliverables and team communications on these days
 
 ## Work Style — Church
 
 - **Sermon prep:** Thursday through Sunday, intermittent (not continuous blocks)
 - **Preaching:** Most Sundays; some weeks off (Arnold will communicate this)
 - **Prep woven around:** Other work — Arnold may do exegesis in the morning and outlining in the evening
+- **Heavy prep days:** Friday and most of Saturday are reserved for LifeCity prep — minimize solopreneur pressure on these days
 
 ## Project Management
 

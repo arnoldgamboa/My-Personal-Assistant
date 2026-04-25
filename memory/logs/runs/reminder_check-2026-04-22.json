@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "workflow": "reminder_check",
+  "date": "2026-04-22",
+  "date_label": "Wednesday, April 22, 2026",
+  "reminders_due_soon": [
+    {
+      "title": "ChatGPT Plus Renewal Decision",
+      "captured_at": "2026-04-02",
+      "due_by": "2026-04-09",
+      "reminder": "ChatGPT Plus subscription ends on April 9. Decide before then whether to keep it or cancel it.",
+      "due_date": "2026-04-09",
+      "due_in_days": -13
+    },
+    {
+      "title": "Perplexity Subscription Ends — Maximize Sermon Research",
+      "captured_at": "2026-04-11",
+      "due_by": "2026-04-22",
+      "reminder": "Perplexity Pro subscription ends April 22. Work on as much sermon research as possible before then.",
+      "due_date": "2026-04-22",
+      "due_in_days": 0
+    }
+  ]
+}

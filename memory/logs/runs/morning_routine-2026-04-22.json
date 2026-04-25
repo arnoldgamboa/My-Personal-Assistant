@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "date": "2026-04-22",
+  "date_label": "Wednesday, April 22, 2026",
+  "workflow": "morning_routine",
+  "top_3": [
+    "[Todoist] Verify Brevo email end-to-end",
+    "[Todoist] Send Manny GCash ₱700",
+    "[Todoist] Send Song List to Music Team"
+  ],
+  "todoist": {
+    "top_priorities": [
+      "Verify Brevo email end-to-end",
+      "Send Manny GCash ₱700",
+      "Send Song List to Music Team"
+    ],
+    "overdue": [],
+    "due_today": [
+      "Publish Shipped & Unfinished blog post (weekly Wednesday)"
+    ],
+    "upcoming": [
+      {
+        "content": "Bukidtek check-in with Noah - follow up on next steps",
+        "due_date": "2026-04-23"
+      },
+      {
+        "content": "Update budget spreadsheet",
+        "due_date": "2026-04-23"
+      }
+    ],
+    "error": null
+  },
+  "carryovers": [],
+  "due_items": [],
+  "stale_reminders": [],
+  "preaching": {
+    "upcoming_sunday": "2026-04-26",
+    "is_preaching": false
+  },
+  "sections": {
+    "sermon_window": false,
+    "preaching": false,
+    "sermon_items_included": false,
+    "friday_items_expected": false,
+    "friday_items_included": false
+  },
+  "validation": {
+    "daily_log_top3_written": true
+  }
+}

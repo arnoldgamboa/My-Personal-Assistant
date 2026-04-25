@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0.0",
+  "date": "2026-04-15",
+  "date_label": "Wednesday, April 15, 2026",
+  "workflow": "morning_routine",
+  "top_3": [
+    "[Todoist] Bukidtek: Server creation",
+    "[Todoist] Verify Brevo email end-to-end",
+    "[Todoist] Send LifeCity gift/offering"
+  ],
+  "todoist": {
+    "top_priorities": [
+      "Bukidtek: Server creation",
+      "Verify Brevo email end-to-end",
+      "Send LifeCity gift/offering"
+    ],
+    "overdue": [
+      "Send LifeCity gift/offering",
+      "Send Song List to Music Team",
+      "Pay Salmon",
+      "Pay UB/Citibank via RCBC app",
+      "Update budget spreadsheet",
+      "Ask employees to volunteer for Tech Talk",
+      "Submit Medicine refund"
+    ],
+    "due_today": [
+      "Unsubscribe from Perplexity"
+    ],
+    "upcoming": [],
+    "error": null
+  },
+  "carryovers": [
+    {
+      "task": "Send LifeCity gift/offering"
+    },
+    {
+      "task": "Send Song List to Music Team"
+    },
+    {
+      "task": "Pay Salmon"
+    },
+    {
+      "task": "Pay UB/Citibank via RCBC app"
+    },
+    {
+      "task": "Update budget spreadsheet"
+    }
+  ],
+  "due_items": [
+    {
+      "label": "due_in_days",
+      "payment": "Pay Converge (internet)",
+      "amount": "",
+      "due_date": "2026-04-17",
+      "due_in_days": 2,
+      "source": "finances",
+      "weekend_note": ""
+    }
+  ],
+  "stale_reminders": [],
+  "preaching": {
+    "upcoming_sunday": "2026-04-19",
+    "is_preaching": true
+  },
+  "sections": {
+    "sermon_window": false,
+    "preaching": true,
+    "sermon_items_included": false,
+    "friday_items_expected": false,
+    "friday_items_included": false
+  },
+  "validation": {
+    "daily_log_top3_written": true
+  }
+}
